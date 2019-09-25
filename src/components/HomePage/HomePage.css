@@ -1,0 +1,12 @@
+.home-content {
+    margin: 15px auto;
+    max-width: 700px;
+}
+
+.home-button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px;
+    font-size: inherit;
+    font-family: inherit;
+}
