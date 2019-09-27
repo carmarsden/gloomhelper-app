@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './components/HomePage/HomePage';
 import NewParty from './components/NewParty/NewParty';
+import Footer from './components/Footer/Footer';
 
 class App extends React.Component {
     state = {
@@ -23,6 +24,8 @@ class App extends React.Component {
                     path='/newparty'
                     component={NewParty}
                 />
+
+                <Footer />
             </div>
         )
     }
