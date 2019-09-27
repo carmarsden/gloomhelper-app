@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import HomePage from './components/HomePage/HomePage';
 import NewParty from './components/NewParty/NewParty';
 import Footer from './components/Footer/Footer';
+import NewChar from './components/NewChar/NewChar';
 
 class App extends React.Component {
     state = {
@@ -23,6 +24,10 @@ class App extends React.Component {
                 <Route 
                     path='/newparty'
                     component={NewParty}
+                />
+                <Route 
+                    path='/newchar'
+                    component={NewChar}
                 />
 
                 <Footer />

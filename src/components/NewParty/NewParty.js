@@ -100,7 +100,7 @@ class NewParty extends React.Component {
     render() {
         return (
             <main role='main'>
-                <form className='newsheet-form'>
+                <form className='newsheet-form' onSubmit={this.handleSubmit}>
                     <h1>New Party</h1>
 
                     <fieldset>
@@ -170,7 +170,7 @@ class NewParty extends React.Component {
                     <div className="form-buttons">
                         <button type='button' onClick={this.handleCancel}>Cancel</button>
                         <button type='reset' onClick={this.handleReset}>Reset Form</button>
-                        <button type='submit' onClick={this.handleSubmit}>Save Party</button>
+                        <button type='submit'>Save Party</button>
                     </div>
                 </form>
             </main>
