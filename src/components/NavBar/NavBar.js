@@ -9,7 +9,7 @@ class NavBar extends React.Component {
                 <nav role="navigation">
                     <ul className="navlist">
                         <li><NavLink exact to='/'>Gloomhelper Logo</NavLink></li>
-                        <li>Other</li>
+                        <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li>Nav Bar</li>
                         <li>Options</li>
                     </ul>

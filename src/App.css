@@ -11,3 +11,16 @@
 h1, h2, h3 {
     text-align: center;
 }
+
+.newsheet-form label {
+    display: block;
+    margin: 5px auto;
+}
+
+.newsheet-form textarea {
+    vertical-align: middle;
+}
+
+.form-buttons {
+    text-align: center;
+}
