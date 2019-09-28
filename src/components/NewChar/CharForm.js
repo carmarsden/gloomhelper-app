@@ -7,6 +7,9 @@ import SpellweaverPerks from './Perks/SpellweaverPerks';
 import TinkererPerks from './Perks/TinkererPerks';
 
 class CharForm extends React.Component {
+    state = {
+        level: 0,
+    }
 
     generatePerksForm(charType) {
         if (charType === 'brute') {
@@ -24,9 +27,34 @@ class CharForm extends React.Component {
         }
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        console.log(e.target);
+    updateLevel(xp) {
+        xp = Number.parseInt(xp, 10);
+        let level;
+        if (xp < 0) {
+            level = 'Error: cannot have XP less than 0';
+        } else if (xp < 45) {
+            level = 1;
+        } else if (xp < 95) {
+            level = 2;
+        } else if (xp < 150) {
+            level = 3;
+        } else if (xp < 210) {
+            level = 4;
+        } else if (xp < 275) {
+            level = 5;
+        } else if (xp < 345) {
+            level = 6;
+        } else if (xp < 420) {
+            level = 7;
+        } else if (xp < 500) {
+            level = 8;
+        } else if (xp >= 500) {
+            level = 9;
+        } else {
+            level = 0;
+        }
+
+        this.setState({ level });
     }
 
     render() {
@@ -44,17 +72,25 @@ class CharForm extends React.Component {
     
         return (
             <section className='bodysection'>
-                <form className='newsheet-form' onSubmit={this.handleSubmit}>
+                <form className='newsheet-form' onSubmit={this.props.handleSubmit}>
                     <h1>{currentClassName}</h1>
 
                     <fieldset>
                         <legend>Base Stats</legend>
-                        <label>Name: 
-                        <input placeholder='Joe Smith' type='text' name='character-name' id='character-name' required/>
+                        <label>Name*: 
+                            <input placeholder='Joe Smith' type='text' name='character-name' id='character-name' required/>
                         </label>
-                        <label>XP: 
-                        <input placeholder='0' type='number' name='xp' id='xp' min='0' required />
+                        <label>XP*: 
+                            <input 
+                                placeholder='0' 
+                                type='number' 
+                                name='xp' 
+                                id='xp' 
+                                min='0' 
+                                onChange={e => this.updateLevel(e.target.value)}
+                                required />
                         </label>
+                        <p>Level: {this.state.level}</p>
                     </fieldset>
 
                     <fieldset>
@@ -107,8 +143,8 @@ class CharForm extends React.Component {
                     </fieldset>
 
                     <div className="form-buttons">
-                        <button type='button'>Cancel</button>
-                        <button type='button'>Reset Form</button>
+                        <button type='button' onClick={this.props.handleCancel}>Cancel</button>
+                        <button type='reset'>Reset Form</button>
                         <button type='submit'>Save Character</button>
                     </div>
                 </form>

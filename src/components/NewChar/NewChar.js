@@ -15,8 +15,23 @@ class NewChar extends React.Component {
         })
     }
 
+    handleCancel = e => {
+        this.props.history.goBack()
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        window.alert("This form currently doesn't go anywhere, but you submitted it!");
+        e.target.reset();
+        this.props.history.push('/');
+    }
+
     render() {
-        const charForm = this.state.charType ? <CharForm charType={this.state.charType} /> : ''
+        const charForm = this.state.charType ? <CharForm 
+            charType={this.state.charType} 
+            handleCancel={this.handleCancel} 
+            handleSubmit={this.handleSubmit}
+            /> : ''
 
         return (
             <main role='main'>
