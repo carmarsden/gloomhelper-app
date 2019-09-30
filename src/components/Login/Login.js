@@ -12,11 +12,12 @@ class Login extends React.Component {
                     <label>Password
                         <input placeholder='password' type="password" name='password' id='password' />
                     </label>
-                    <div class="form-buttons">
-                        <button type='button'>Cancel</button>
+                    <div className="form-buttons">
+                        <button type='button' onClick={this.props.handleCloseModal}>Cancel</button>
                         <button type='submit'>Log In</button>
                     </div>
                 </fieldset>
+                <p>New User? Create Account</p>
             </form>    
         )
     }
