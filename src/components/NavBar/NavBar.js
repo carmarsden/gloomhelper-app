@@ -12,7 +12,8 @@ class NavBar extends React.Component {
                         <li>Dashboard</li>
                         <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li><NavLink to='/newchar'>+ Char</NavLink></li>
-                        <li>Login / Logout</li>
+                        <li><NavLink to='#' onClick={() => this.props.handleOpenModal('login')}>Login</NavLink></li>
+                        <li>Logout</li>
                     </ul>
                 </nav>
           </header>

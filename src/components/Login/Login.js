@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
     render() {
@@ -17,7 +18,7 @@ class Login extends React.Component {
                         <button type='submit'>Log In</button>
                     </div>
                 </fieldset>
-                <p>New User? Create Account</p>
+                <p>New User? <Link to='#' onClick={() => this.props.handleOpenModal('createacct')}>Create Account</Link></p>
             </form>    
         )
     }

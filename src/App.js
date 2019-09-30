@@ -19,15 +19,16 @@ class App extends React.Component {
     }
 
     handleOpenModal = (screen) => {
+        if (screen === 'login') {
+            this.setState({
+                showLoginModal: true,
+                showCreateAcctModal: false,
+            })
+        }
         if (screen === 'createacct') {
             this.setState({
                 showLoginModal: false,
                 showCreateAcctModal: true,
-            })
-        } else {
-            this.setState({
-                showLoginModal: true,
-                showCreateAcctModal: false,
             })
         }
     }
@@ -55,7 +56,10 @@ class App extends React.Component {
                     ariaHideApp={true}
                     className='account-modal'
                 >
-                    <Login handleCloseModal={this.handleCloseModal} />
+                    <Login 
+                        handleCloseModal={this.handleCloseModal} 
+                        handleOpenModal={this.handleOpenModal}
+                    />
                 </ReactModal>
 
                 <Route 
