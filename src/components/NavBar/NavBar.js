@@ -13,6 +13,7 @@ class NavBar extends React.Component {
                         <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li><NavLink to='/newchar'>+ Char</NavLink></li>
                         <li><NavLink to='#' onClick={() => this.props.handleOpenModal('login')}>Login</NavLink></li>
+                        <li><NavLink to='#' onClick={() => this.props.handleOpenModal('createacct')}>Create Account</NavLink></li>
                         <li>Logout</li>
                     </ul>
                 </nav>

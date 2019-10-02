@@ -4,7 +4,8 @@ import ReactModal from 'react-modal';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
-import Login from './components/Login/Login';
+import Login from './components/AcctModals/Login';
+import CreateAccount from './components/AcctModals/CreateAccount';
 import HomePage from './components/HomePage/HomePage';
 import NewParty from './components/NewParty/NewParty';
 import NewChar from './components/NewChar/NewChar';
@@ -47,8 +48,6 @@ class App extends React.Component {
                     handleOpenModal={this.handleOpenModal}
                 />
 
-                <button onClick={this.handleOpenModal}>Open Login</button>
-
                 <ReactModal 
                     isOpen={this.state.showLoginModal} 
                     contentLabel='Login modal'
@@ -57,6 +56,19 @@ class App extends React.Component {
                     className='account-modal'
                 >
                     <Login 
+                        handleCloseModal={this.handleCloseModal} 
+                        handleOpenModal={this.handleOpenModal}
+                    />
+                </ReactModal>
+
+                <ReactModal 
+                    isOpen={this.state.showCreateAcctModal} 
+                    contentLabel='Create Account modal'
+                    onRequestClose={this.handleCloseModal}
+                    ariaHideApp={true}
+                    className='account-modal'
+                >
+                    <CreateAccount 
                         handleCloseModal={this.handleCloseModal} 
                         handleOpenModal={this.handleOpenModal}
                     />
