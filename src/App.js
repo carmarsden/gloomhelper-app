@@ -41,11 +41,38 @@ class App extends React.Component {
         })
     }
 
+    handleCreateAccount = e => {
+        e.preventDefault();
+        window.alert("You've created your account!");
+        this.setState({
+            loggedIn: true,
+            showCreateAcctModal: false,
+        })
+    }
+
+    handleLogin = e => {
+        e.preventDefault();
+        window.alert("You've logged in!");
+        this.setState({
+            loggedIn: true,
+            showLoginModal: false,
+            showCreateAcctModal: false
+        })
+    }
+
+    handleLogout = e => {
+        this.setState({
+            loggedIn: false
+        })
+    }
+
     render() {
         return (
             <div className='App'>
                 <NavBar 
                     handleOpenModal={this.handleOpenModal}
+                    handleLogout={this.handleLogout}
+                    loggedIn={this.state.loggedIn}
                 />
 
                 <ReactModal 
@@ -56,8 +83,9 @@ class App extends React.Component {
                     className='account-modal'
                 >
                     <Login 
-                        handleCloseModal={this.handleCloseModal} 
+                        handleLogin={this.handleLogin}
                         handleOpenModal={this.handleOpenModal}
+                        handleCloseModal={this.handleCloseModal} 
                     />
                 </ReactModal>
 
@@ -69,8 +97,9 @@ class App extends React.Component {
                     className='account-modal'
                 >
                     <CreateAccount 
-                        handleCloseModal={this.handleCloseModal} 
+                        handleCreateAccount={this.handleCreateAccount}
                         handleOpenModal={this.handleOpenModal}
+                        handleCloseModal={this.handleCloseModal} 
                     />
                 </ReactModal>
 

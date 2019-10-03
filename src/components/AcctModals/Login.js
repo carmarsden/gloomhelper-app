@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 class Login extends React.Component {
     render() {
         return (
-            <form className='account-form'>
+            <form className='account-form' onSubmit={this.props.handleLogin}>
                 <fieldset>
                     <legend>Log In</legend>
                     <label>Username
-                        <input placeholder='username' type='text' name='username' id='username' />
+                        <input placeholder='username' type='text' name='username' id='username' required />
                     </label>
                     <label>Password
-                        <input placeholder='password' type="password" name='password' id='password' />
+                        <input placeholder='password' type="password" name='password' id='password' required />
                     </label>
                     <div className="form-buttons">
                         <button type='button' onClick={this.props.handleCloseModal}>Cancel</button>
