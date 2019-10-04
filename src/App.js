@@ -9,6 +9,7 @@ import CreateAccount from './components/AcctModals/CreateAccount';
 import HomePage from './components/HomePage/HomePage';
 import NewParty from './components/NewParty/NewParty';
 import NewChar from './components/NewChar/NewChar';
+import Dashboard from './components/Dashboard/Dashboard';
 
 ReactModal.setAppElement('#root');
 
@@ -106,6 +107,10 @@ class App extends React.Component {
                 <Route 
                     exact path='/'
                     component={HomePage}
+                />
+                <Route 
+                    path='/dashboard'
+                    component={Dashboard}
                 />
                 <Route 
                     path='/newparty'

@@ -27,7 +27,7 @@ class NavBar extends React.Component {
                 <nav role="navigation">
                     <ul className="navlist">
                         <li><NavLink exact to='/'>Gloomhelper Logo</NavLink></li>
-                        <li>Dashboard</li>
+                        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
                         <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li><NavLink to='/newchar'>+ Char</NavLink></li>
                         {accountLinks}
