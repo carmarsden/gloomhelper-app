@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
+import ReactModal from 'react-modal';
 import App from './App';
+import './index.css';
 
 ReactDOM.render(
     <BrowserRouter>
@@ -10,3 +11,5 @@ ReactDOM.render(
     </BrowserRouter>, 
     document.getElementById('root')
 );
+
+ReactModal.setAppElement('#root');

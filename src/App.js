@@ -11,8 +11,6 @@ import NewParty from './components/NewParty/NewParty';
 import NewChar from './components/NewChar/NewChar';
 import Dashboard from './components/Dashboard/Dashboard';
 
-ReactModal.setAppElement('#root');
-
 class App extends React.Component {
     state = {
         loggedIn: false,
