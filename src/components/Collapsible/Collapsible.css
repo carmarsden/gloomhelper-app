@@ -1,0 +1,50 @@
+.collapsible-section {
+    padding: 30px 15px;
+    background-color: #ddd;
+}
+
+.collapsible-section:nth-child(odd) {
+    background-color: #fff;
+}
+
+.collapsible-header {
+    display: block;
+    width: 100%;
+    background-color: #eee;
+}
+
+.collapsible-header:focus, .collapsible-header:hover {
+    background-color: #bbb;
+}
+
+.collapsible-header h2 {
+    display: inline-block;
+}
+
+.arrow-down {
+    display: inline-block;
+    margin: 0 10px;
+    width: 0; 
+    height: 0; 
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 12px solid #000;  
+}
+
+.arrow-right {
+    display: inline-block;
+    margin: 0 10px;
+    width: 0; 
+    height: 0; 
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 12px solid #000;  
+}
+
+.collapsible-open {
+    display: block;
+}
+
+.collapsible-closed {
+    display: none;
+}
