@@ -21,6 +21,7 @@ class NavBar extends React.Component {
 
     render() {
         const accountLinks = this.generateAccountLinks();
+//        const dashboardLink = (this.props.loggedIn) ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li> : '';
 
         return (
             <header role="banner">
