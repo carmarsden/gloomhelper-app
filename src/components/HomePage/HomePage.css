@@ -5,8 +5,17 @@
 
 .home-button {
     display: block;
+    width: fit-content;
     margin: 30px auto;
     padding: 10px;
+    border: 1px #333 solid;
     font-size: inherit;
     font-family: inherit;
+    text-decoration: none;
+    color: inherit;
+    background-color: #ddd;
+}
+
+.home-button:focus, .home-button:hover {
+    background-color: #bbb;
 }

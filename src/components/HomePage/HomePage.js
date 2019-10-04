@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css'
 
 function HomePage() {
@@ -18,8 +19,8 @@ function HomePage() {
                 </ol>
             </section>
             <section className='bodysection'>
-                <button className="home-button">Get Started</button>
-                <button className="home-button">Demo</button>
+                <Link to='/newparty' className='home-button'>Get Started</Link>
+                <Link to='/dashboard' className='home-button'>Demo</Link>
             </section>
         </main>
     )
