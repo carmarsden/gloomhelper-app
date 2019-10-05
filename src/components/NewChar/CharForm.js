@@ -8,6 +8,7 @@ import TinkererPerks from './Perks/TinkererPerks';
 
 class CharForm extends React.Component {
     state = {
+        xpError: '',
         level: 0,
     }
 
@@ -25,6 +26,19 @@ class CharForm extends React.Component {
         } else if (charType === 'tinkerer') {
             return <TinkererPerks />
         }
+    }
+
+    updateXp(xp) {
+        xp = Number.parseFloat(xp);
+        let xpError = '';
+
+        if (Number.isNaN(xp) || !Number.isInteger(xp)) {
+            xpError = 'XP must be an integer'
+        } else {
+            xpError = '';
+        }
+
+        this.setState({ xpError }, this.updateLevel(xp))
     }
 
     updateLevel(xp) {
@@ -87,9 +101,10 @@ class CharForm extends React.Component {
                                 name='xp' 
                                 id='xp' 
                                 min='0' 
-                                onChange={e => this.updateLevel(e.target.value)}
+                                onChange={e => this.updateXp(e.target.value)}
                                 required />
                         </label>
+                        <span>{this.state.xpError}</span>
                         <p>Level: {this.state.level}</p>
                     </fieldset>
 
