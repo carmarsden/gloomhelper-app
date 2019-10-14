@@ -17,9 +17,10 @@ import Dashboard from './components/Dashboard/Dashboard';
 import AccountService from './services/account-service';
 import TokenService from './services/token-service';
 
+
 class App extends React.Component {
     state = {
-        loggedIn: false,
+        loggedIn: TokenService.hasAuthToken(),
         showLoginModal: false,
         showCreateAcctModal: false,
         loginError: null,
@@ -41,6 +42,7 @@ class App extends React.Component {
     }
 
     handleCloseModal = e => {
+        // clear modals & errors
         this.setState({
             showLoginModal: false,
             showCreateAcctModal: false,
@@ -59,13 +61,12 @@ class App extends React.Component {
 
     handleLogin = e => {
         e.preventDefault();
-
         const { username, password } = e.target;
         const credentials = {
             username: username.value,
             password: password.value,
         }
-        
+
         AccountService.login(credentials)
             .then(res => {
                 TokenService.saveAuthToken(res.authToken);
@@ -83,10 +84,11 @@ class App extends React.Component {
                     this.setState({ loginError: 'Something went wrong! Please try again later.' })
                 }
             })
-
+        ;
     }
 
     handleLogout = e => {
+        TokenService.clearAuthToken();
         this.setState({
             loggedIn: false
         })
