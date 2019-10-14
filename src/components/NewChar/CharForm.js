@@ -92,7 +92,7 @@ class CharForm extends React.Component {
                     <fieldset>
                         <legend>Base Stats</legend>
                         <label>Name*: 
-                            <input placeholder='Joe Smith' type='text' name='character-name' id='character-name' required/>
+                            <input placeholder='Joe Smith' type='text' name='character_name' id='character_name' required/>
                         </label>
                         <label>XP*: 
                             <input 
@@ -111,13 +111,13 @@ class CharForm extends React.Component {
                     <fieldset>
                         <legend>Notes</legend>
                         <label>Gold Notes: 
-                            <textarea name='gold-notes' id='gold-notes' rows='3' cols='50'></textarea>
+                            <textarea name='gold_notes' id='gold_notes' rows='3' cols='50'></textarea>
                         </label>
                         <label>Items: 
-                            <textarea name='items-notes' id='items-notes' rows='5' cols='50'></textarea>
+                            <textarea name='items_notes' id='items_notes' rows='5' cols='50'></textarea>
                         </label>
                         <label>General Notes: 
-                            <textarea name='character-notes' id='character-notes' rows='5' cols='50'></textarea>
+                            <textarea name='character_notes' id='character_notes' rows='5' cols='50'></textarea>
                         </label>
                     </fieldset>
 
@@ -126,34 +126,34 @@ class CharForm extends React.Component {
                     <fieldset>
                         <legend>Battle Goals</legend>
                         <label> √: 
-                        <input type='checkbox' id='goals-check-1-1' name='goals-check-1-1' />
-                        <input type='checkbox' id='goals-check-1-2' name='goals-check-1-2' />
-                        <input type='checkbox' id='goals-check-1-3' name='goals-check-1-3' />
+                        <input type='checkbox' id='goals_check_1_1' name='goals_check_1_1' />
+                        <input type='checkbox' id='goals_check_1_2' name='goals_check_1_2' />
+                        <input type='checkbox' id='goals_check_1_3' name='goals_check_1_3' />
                         </label>
                         <label> √: 
-                        <input type='checkbox' id='goals-check-2-1' name='goals-check-2-1' />
-                        <input type='checkbox' id='goals-check-2-2' name='goals-check-2-2' />
-                        <input type='checkbox' id='goals-check-2-3' name='goals-check-2-3' />
+                        <input type='checkbox' id='goals_check_2_1' name='goals_check_2_1' />
+                        <input type='checkbox' id='goals_check_2_2' name='goals_check_2_2' />
+                        <input type='checkbox' id='goals_check_2_3' name='goals_check_2_3' />
                         </label>
                         <label> √: 
-                        <input type='checkbox' id='goals-check-3-1' name='goals-check-3-1' />
-                        <input type='checkbox' id='goals-check-3-2' name='goals-check-3-2' />
-                        <input type='checkbox' id='goals-check-3-3' name='goals-check-3-3' />
+                        <input type='checkbox' id='goals_check_3_1' name='goals_check_3_1' />
+                        <input type='checkbox' id='goals_check_3_2' name='goals_check_3_2' />
+                        <input type='checkbox' id='goals_check_3_3' name='goals_check_3_3' />
                         </label>
                         <label> √: 
-                        <input type='checkbox' id='goals-check-4-1' name='goals-check-4-1' />
-                        <input type='checkbox' id='goals-check-4-2' name='goals-check-4-2' />
-                        <input type='checkbox' id='goals-check-4-3' name='goals-check-4-3' />
+                        <input type='checkbox' id='goals_check_4_1' name='goals_check_4_1' />
+                        <input type='checkbox' id='goals_check_4_2' name='goals_check_4_2' />
+                        <input type='checkbox' id='goals_check_4_3' name='goals_check_4_3' />
                         </label>
                         <label> √: 
-                        <input type='checkbox' id='goals-check-5-1' name='goals-check-5-1' />
-                        <input type='checkbox' id='goals-check-5-2' name='goals-check-5-2' />
-                        <input type='checkbox' id='goals-check-5-3' name='goals-check-5-3' />
+                        <input type='checkbox' id='goals_check_5_1' name='goals_check_5_1' />
+                        <input type='checkbox' id='goals_check_5_2' name='goals_check_5_2' />
+                        <input type='checkbox' id='goals_check_5_3' name='goals_check_5_3' />
                         </label>
                         <label> √: 
-                        <input type='checkbox' id='goals-check-6-1' name='goals-check-6-1' />
-                        <input type='checkbox' id='goals-check-6-2' name='goals-check-6-2' />
-                        <input type='checkbox' id='goals-check-6-3' name='goals-check-6-3' />
+                        <input type='checkbox' id='goals_check_6_1' name='goals_check_6_1' />
+                        <input type='checkbox' id='goals_check_6_2' name='goals_check_6_2' />
+                        <input type='checkbox' id='goals_check_6_3' name='goals_check_6_3' />
                         </label>
                     </fieldset>
 

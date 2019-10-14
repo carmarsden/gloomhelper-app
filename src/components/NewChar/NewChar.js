@@ -21,6 +21,8 @@ class NewChar extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        const { character_name, xp, } = e.target;
+        console.log(character_name.value, xp.value);
         window.alert("This form currently doesn't go anywhere, but you submitted it!");
         e.target.reset();
         this.props.history.push('/');
@@ -40,7 +42,7 @@ class NewChar extends React.Component {
                         <fieldset>
                             <legend>Choose Character</legend>
                             <label>Character Class: 
-                                <select id='charclass' ref={this.charTypeRef} required>
+                                <select id='character_class' ref={this.charTypeRef} required>
                                     <option value=''>Choose class</option>
                                     <option value='brute'>Inox Brute</option>
                                     <option value='cragheart'>Savvas Cragheart</option>

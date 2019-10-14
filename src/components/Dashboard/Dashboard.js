@@ -70,8 +70,8 @@ class Dashboard extends React.Component {
                         <li>General Notes: Elite kills = 4</li>
                         <li>Perks: 
                             <ul>
-                                <li>Add one +1 STUN card</li>
-                                <li>Add one LEAF and one WIND card</li>
+                                <li>Add one +0 STUN card</li>
+                                <li>Add one EARTH ELEMENT and one AIR ELEMENT card</li>
                             </ul>
                         </li>
                         <li>Battle Goals:
