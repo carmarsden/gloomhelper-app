@@ -24,6 +24,7 @@ class App extends React.Component {
         showLoginModal: false,
         showCreateAcctModal: false,
         loginError: null,
+        registerError: null,
     }
 
     handleOpenModal = (screen) => {
@@ -47,16 +48,42 @@ class App extends React.Component {
             showLoginModal: false,
             showCreateAcctModal: false,
             loginError: null,
+            registerError: null,
         })
     }
 
     handleCreateAccount = e => {
         e.preventDefault();
-        window.alert("You've created your account!");
-        this.setState({
-            loggedIn: true,
-            showCreateAcctModal: false,
-        })
+
+        const { username, password } = e.target;
+        const user = {
+            username: username.value,
+            password: password.value,
+        };
+
+        AccountService.register(user)
+            .then(res => {
+                AccountService.login(user)
+                    .then(res => {
+                        TokenService.saveAuthToken(res.authToken)
+                        this.setState({
+                            loggedIn: true,
+                            showLoginModal: false,
+                            showCreateAcctModal: false,
+                            loginError: null,
+                            registerError: null,
+                        })
+                    })
+                    .catch(res => {
+                        const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
+                        this.setState({ registerError: errorText });        
+                    })
+            })
+            .catch(res => {
+                const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
+                this.setState({ registerError: errorText });
+            })
+        ;
     }
 
     handleLogin = e => {
@@ -65,7 +92,7 @@ class App extends React.Component {
         const credentials = {
             username: username.value,
             password: password.value,
-        }
+        };
 
         AccountService.login(credentials)
             .then(res => {
@@ -78,11 +105,8 @@ class App extends React.Component {
                 })
             })
             .catch(res => {
-                if (res.error) {
-                    this.setState({ loginError: res.error })
-                } else {
-                    this.setState({ loginError: 'Something went wrong! Please try again later.' })
-                }
+                const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
+                this.setState({ loginError: errorText });
             })
         ;
     }
@@ -129,6 +153,7 @@ class App extends React.Component {
                         handleCreateAccount={this.handleCreateAccount}
                         handleOpenModal={this.handleOpenModal}
                         handleCloseModal={this.handleCloseModal} 
+                        registerError={this.state.registerError}
                     />
                 </ReactModal>
 

@@ -35,7 +35,10 @@ class CreateAccount extends React.Component {
             if (value.length === 0) {
                 newErrors.username = 'Username is required';
                 newErrors.usernameValid = false;
-            } else {
+            } else if (value.length < 4) {
+                newErrors.username = 'Username must be more than 3 characters';
+                newErrors.usernameValid = false;
+            } else  {
                 newErrors.username = '';
                 newErrors.usernameValid = true;
             }
@@ -83,9 +86,19 @@ class CreateAccount extends React.Component {
         })
     }
 
+    generateRegisterError() {
+        if (this.props.registerError) {
+            return <p className='form-error'>{this.props.registerError}</p>;
+        } else {
+            return '';
+        }
+    }
+
     render() {
+        const registerError = this.generateRegisterError();
         return (
             <form className='account-form' onSubmit={this.props.handleCreateAccount}>
+                {registerError}
                 <fieldset>
                     <legend>Create Account</legend>
                     <label>Username
@@ -99,7 +112,7 @@ class CreateAccount extends React.Component {
                             required 
                         />                        
                     </label>
-                    <span>{this.state.formErrors.username}</span>
+                    <span className='form-error'>{this.state.formErrors.username}</span>
                     <label>Password
                         <input 
                             placeholder='password' 
@@ -111,7 +124,7 @@ class CreateAccount extends React.Component {
                             required 
                         />
                     </label>
-                    <span>{this.state.formErrors.password}</span>
+                    <span className='form-error'>{this.state.formErrors.password}</span>
                     <label>Confirm Password
                         <input 
                             placeholder='confirm password' 
@@ -123,7 +136,7 @@ class CreateAccount extends React.Component {
                             required 
                         />
                     </label>
-                    <span>{this.state.formErrors.confirmPassword}</span>
+                    <span className='form-error'>{this.state.formErrors.confirmPassword}</span>
                     <div className="form-buttons">
                         <button type='button' onClick={this.props.handleCloseModal}>Cancel</button>
                         <button type='submit' disabled={!this.state.formValid}>Create Account</button>
