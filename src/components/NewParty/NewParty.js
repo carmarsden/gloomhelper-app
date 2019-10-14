@@ -1,4 +1,5 @@
 import React from 'react';
+import EntriesService from '../../services/entries-service';
 
 class NewParty extends React.Component {
     state = {
@@ -12,6 +13,7 @@ class NewParty extends React.Component {
         },
         formErrors: {
             reputation: '',
+            form: '',
         }
     };
 
@@ -85,16 +87,42 @@ class NewParty extends React.Component {
             price_mod: 0,
             party_notes: '',
             achievements: '',    
-        }
+        };
+        const blankErrors = {
+            reputation: '',
+            form: '',
+        };
         this.setState({
-            formFields: blankForm
+            formFields: blankForm,
+            formErrors: blankErrors
         })
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        window.alert("This form currently doesn't go anywhere, but you submitted it!");
-        this.handleReset(e);
+
+        // massage newParty object for submission
+        const newParty = this.state.formFields;
+        newParty.date_modified = new Date();
+        newParty.reputation = Number(newParty.reputation);
+        delete newParty.price_mod;
+
+        // post newParty
+        EntriesService.postParty(newParty)
+        .then(party => {
+            window.alert('Party successfully added!');
+            this.handleReset(e);
+            this.props.history.push('/dashboard');
+        })
+        .catch(res => {
+            const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
+            this.setState({
+                formErrors: {
+                    ...this.state.formErrors,
+                    form: errorText
+                }
+            });
+        })    
     }
 
     render() {
@@ -103,6 +131,7 @@ class NewParty extends React.Component {
                 <form className='newsheet-form' onSubmit={this.handleSubmit}>
                     <h1>New Party</h1>
 
+                    <p className='form-error'>{this.state.formErrors.form}</p>
                     <fieldset>
                         <legend>Base Stats</legend>
                         <label>Name*: 
@@ -139,7 +168,7 @@ class NewParty extends React.Component {
                                 required 
                             />
                         </label>
-                        <span>{this.state.formErrors.reputation}</span>
+                        <span className='form-error'>{this.state.formErrors.reputation}</span>
                         <p>Shop Price Modifier: {this.state.formFields.price_mod}</p>
                     </fieldset>
 
