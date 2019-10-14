@@ -2,6 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import './App.css';
+
+// Components
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Login from './components/AcctModals/Login';
@@ -11,11 +13,16 @@ import NewParty from './components/NewParty/NewParty';
 import NewChar from './components/NewChar/NewChar';
 import Dashboard from './components/Dashboard/Dashboard';
 
+// Services
+import AccountService from './services/account-service';
+import TokenService from './services/token-service';
+
 class App extends React.Component {
     state = {
         loggedIn: false,
         showLoginModal: false,
         showCreateAcctModal: false,
+        loginError: null,
     }
 
     handleOpenModal = (screen) => {
@@ -37,6 +44,7 @@ class App extends React.Component {
         this.setState({
             showLoginModal: false,
             showCreateAcctModal: false,
+            loginError: null,
         })
     }
 
@@ -51,12 +59,31 @@ class App extends React.Component {
 
     handleLogin = e => {
         e.preventDefault();
-        window.alert("You've logged in!");
-        this.setState({
-            loggedIn: true,
-            showLoginModal: false,
-            showCreateAcctModal: false
-        })
+
+        const { username, password } = e.target;
+        const credentials = {
+            username: username.value,
+            password: password.value,
+        }
+        
+        AccountService.login(credentials)
+            .then(res => {
+                TokenService.saveAuthToken(res.authToken);
+                this.setState({
+                    loggedIn: true,
+                    showLoginModal: false,
+                    showCreateAcctModal: false,
+                    loginError: null,
+                })
+            })
+            .catch(res => {
+                if (res.error) {
+                    this.setState({ loginError: res.error })
+                } else {
+                    this.setState({ loginError: 'Something went wrong! Please try again later.' })
+                }
+            })
+
     }
 
     handleLogout = e => {
@@ -85,6 +112,7 @@ class App extends React.Component {
                         handleLogin={this.handleLogin}
                         handleOpenModal={this.handleOpenModal}
                         handleCloseModal={this.handleCloseModal} 
+                        loginError={this.state.loginError}
                     />
                 </ReactModal>
 

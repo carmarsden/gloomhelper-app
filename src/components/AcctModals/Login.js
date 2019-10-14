@@ -2,9 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
+    generateLoginError() {
+        if (this.props.loginError) {
+            return <p className='form-error'>{this.props.loginError}</p>;
+        } else {
+            return '';
+        }
+    }
     render() {
+        const loginError = this.generateLoginError();
         return (
             <form className='account-form' onSubmit={this.props.handleLogin}>
+                {loginError}
                 <fieldset>
                     <legend>Log In</legend>
                     <label>Username
