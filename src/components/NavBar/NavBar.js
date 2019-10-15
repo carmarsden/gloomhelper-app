@@ -20,15 +20,15 @@ class NavBar extends React.Component {
     }
 
     render() {
+        const dashboardLink = (this.props.loggedIn) ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li> : <li><NavLink to='/demo'>Demo</NavLink></li>;
         const accountLinks = this.generateAccountLinks();
-//        const dashboardLink = (this.props.loggedIn) ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li> : '';
 
         return (
             <header role="banner">
                 <nav role="navigation">
                     <ul className="navlist">
                         <li><NavLink exact to='/'>Gloomhelper Logo</NavLink></li>
-                        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                        {dashboardLink}
                         <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li><NavLink to='/newchar'>+ Char</NavLink></li>
                         {accountLinks}

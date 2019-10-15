@@ -20,7 +20,7 @@ function HomePage() {
             </section>
             <section className='bodysection'>
                 <Link to='/newparty' className='home-button'>Get Started</Link>
-                <Link to='/dashboard' className='home-button'>Demo</Link>
+                <Link to='/demo' className='home-button'>Demo</Link>
             </section>
         </main>
     )

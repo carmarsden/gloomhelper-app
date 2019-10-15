@@ -11,6 +11,7 @@ import CreateAccount from './components/AcctModals/CreateAccount';
 import HomePage from './components/HomePage/HomePage';
 import NewParty from './components/NewParty/NewParty';
 import NewChar from './components/NewChar/NewChar';
+import Demo from './components/Demo/Demo';
 import Dashboard from './components/Dashboard/Dashboard';
 
 // Services
@@ -164,6 +165,10 @@ class App extends React.Component {
                 <Route 
                     path='/dashboard'
                     component={Dashboard}
+                />
+                <Route 
+                    path='/demo'
+                    component={Demo}
                 />
                 <Route 
                     path='/newparty'
