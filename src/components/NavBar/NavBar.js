@@ -7,7 +7,7 @@ class NavBar extends React.Component {
         const loggedIn = this.props.loggedIn;
         if (loggedIn) {
             return (
-                <li><NavLink to='#' onClick={this.props.handleLogout}>Log Out</NavLink></li>
+                <li><NavLink to='/logout' onClick={this.props.handleLogout}>Log Out</NavLink></li>
             )
         } else {
             return (

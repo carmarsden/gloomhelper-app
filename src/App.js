@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import './App.css';
 
@@ -116,7 +116,7 @@ class App extends React.Component {
         TokenService.clearAuthToken();
         this.setState({
             loggedIn: false
-        })
+        });
     }
 
     render() {
@@ -178,6 +178,11 @@ class App extends React.Component {
                     path='/newchar'
                     component={NewChar}
                 />
+                <Route 
+                    path='/logout'
+                    render={() => <Redirect to='/' />}
+                />
+
 
                 <Footer />
             </div>
