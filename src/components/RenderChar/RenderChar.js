@@ -38,7 +38,12 @@ function generatePerks(classType, perkStr) {
     const perkArr = CHARPERKS.find(item => item.code === classType).perks;
     for (let i = 0; i < 15; i++) {
         if (perkStr[i] === '1') {
-            perkList.push(<li key={i}>{perkArr[i]}</li>)
+            if (typeof(perkArr[i]) === 'number') {
+                const val = perkArr[i];
+                perkList.push(<li key={i}>{perkArr[i - val]}</li>)
+            } else {
+                perkList.push(<li key={i}>{perkArr[i]}</li>)
+            }
         }
     }
     return perkList;

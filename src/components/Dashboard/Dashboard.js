@@ -1,91 +1,60 @@
 import React from 'react';
-import Collapsible from '../../containers/Collapsible/Collapsible';
+import RenderParty from '../RenderParty/RenderParty';
+import RenderChar from '../RenderChar/RenderChar';
+import EntriesService from '../../services/entries-service';
 
 class Dashboard extends React.Component {
+    state = {
+        parties: [],
+        characters: [],
+        loading: true,
+        error: null,
+    }
+
+    componentDidMount() {
+        EntriesService.getEntries()
+            .then(res => this.setState({
+                parties: res[0],
+                characters: res[1],
+                loading: false,
+            }))
+            .catch(res => {
+                const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
+                this.setState({ error: errorText });
+            })
+        ;
+    }
+
     render() {
+        const error = this.state.error;
+        const loadingdisplay = this.state.loading ? <p className='form-error'>... Loading your dashboard...</p> : '';
+
+        const partyArray = this.state.parties;
+        const partyComponents = [];
+        partyArray.forEach((party, i) => {
+            partyComponents.push(<RenderParty key={i}>{party}</RenderParty>)
+        })
+
+        const charArray = this.state.characters;
+        const charComponents = [];
+        charArray.forEach((char, i) => {
+            charComponents.push(<RenderChar key={i}>{char}</RenderChar>)
+        })
+
         return (
             <main role='main'>
                 <section className='bodysection'>
                     <h1>User Dashboard</h1>
                 </section>
 
-                <Collapsible title='Party: Gloomhaven Gangsters'>
-                    <ul>
-                        <li>Name: Gloomhaven Gangsters</li>
-                        <li>Location: Gloomhaven</li>
-                        <li>Reputation: +4</li>
-                        <li>Shop Price Modifier: -1</li>
-                        <li>Notes: last we checked, we were rising up against Jeksarah--pretty sure she's evil??</li>
-                        <li>Achievements: 
-                            <ul>
-                                <li>First Steps</li>
-                                <li>Second Steps</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </Collapsible>
+                <section role='alert'>
+                    {loadingdisplay}
+                    <p className='form-error'>{error}</p>
+                </section>
 
-                <Collapsible title='Inox Brute: Sal'>
-                    <ul>
-                        <li>Name: Sal</li>
-                        <li>XP: 32</li>
-                        <li>Level: 1</li>
-                        <li>Gold Notes: 13 (saving up for chainmail armor)</li>
-                        <li>Items:
-                            <ul>
-                                <li>Eagle Eye Goggles</li>
-                                <li>Boots of Striding</li>
-                            </ul>
-                        </li>
-                        <li>General Notes: x2 blessings next scenario</li>
-                        <li>Perks: 
-                            <ul>
-                                <li>Add one +3 card</li>
-                            </ul>
-                        </li>
-                        <li>Battle Goals:
-                            <ul>
-                                <li>√: ☑ ☑ ☑</li>
-                                <li>√: ☑ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </Collapsible>
 
-                <Collapsible title='Orchid Spellweaver: Transcendy MacMillion'>
-                    <ul>
-                        <li>Name: Transcendy MacMillion</li>
-                        <li>XP: 48</li>
-                        <li>Level: 2</li>
-                        <li>Gold Notes: 46</li>
-                        <li>Items:
-                            <ul>
-                                <li>Minor Manna Potion</li>
-                            </ul>
-                        </li>
-                        <li>General Notes: Elite kills = 4</li>
-                        <li>Perks: 
-                            <ul>
-                                <li>Add one +0 STUN card</li>
-                                <li>Add one EARTH ELEMENT and one AIR ELEMENT card</li>
-                            </ul>
-                        </li>
-                        <li>Battle Goals:
-                            <ul>
-                                <li>√: ☑ ☑ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                                <li>√: ☐ ☐ ☐</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </Collapsible>
+                {partyComponents}
+                {charComponents}
 
             </main>
         )

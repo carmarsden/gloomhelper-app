@@ -2,6 +2,16 @@ import config from '../config';
 import TokenService from './token-service';
 
 const EntriesService = {
+    getEntries() {
+        return fetch(`${config.API_BASE_URL}/entries`, {
+            method: 'GET',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(res => (res.ok) ? res.json() : res.json().then(e => Promise.reject(e)))
+    },
+
     postParty(party) {
         return fetch(`${config.API_BASE_URL}/entries/parties`, {
             method: 'POST',
