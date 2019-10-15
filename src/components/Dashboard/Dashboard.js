@@ -1,5 +1,5 @@
 import React from 'react';
-import Collapsible from '../Collapsible/Collapsible';
+import Collapsible from '../../containers/Collapsible/Collapsible';
 
 class Dashboard extends React.Component {
     render() {

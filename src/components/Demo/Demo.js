@@ -1,5 +1,5 @@
 import React from 'react';
-import Collapsible from '../Collapsible/Collapsible';
+import Collapsible from '../../containers/Collapsible/Collapsible';
 import DEMODATA from './demodata';
 import RenderParty from '../RenderParty/RenderParty';
 
@@ -20,7 +20,7 @@ class Demo extends React.Component {
                 </section>
 
                 {partyComponents}
-                
+
                 <Collapsible title='Inox Brute: Sal'>
                     <ul>
                         <li>Name: Sal</li>
