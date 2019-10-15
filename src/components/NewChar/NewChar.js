@@ -1,6 +1,7 @@
 import React from 'react';
 import CharForm from './CharForm';
 import EntriesService from '../../services/entries-service';
+import CHARCLASSES from '../../data/charclasses';
 
 class NewChar extends React.Component {
     state = {
@@ -83,6 +84,12 @@ class NewChar extends React.Component {
             handleSubmit={this.handleSubmit}
             formError={this.state.formError}
             /> : ''
+        ;
+
+        const classOptions = [];
+        CHARCLASSES.forEach((classType, i) => {
+            classOptions.push(<option value={classType.code} key={i}>{classType.name}</option>)
+        });
 
         return (
             <main role='main'>
@@ -93,12 +100,7 @@ class NewChar extends React.Component {
                             <label>Character Class: 
                                 <select id='character_class' ref={this.charTypeRef} required>
                                     <option value=''>Choose class</option>
-                                    <option value='brute'>Inox Brute</option>
-                                    <option value='cragheart'>Savvas Cragheart</option>
-                                    <option value='mindthief'>Vermling Mindthief</option>
-                                    <option value='spellweaver'>Orchid Spellweaver</option>
-                                    <option value='scoundrel'>Human Scoundrel</option>
-                                    <option value='tinkerer'>Quatryl Tinkerer</option>
+                                    {classOptions}
                                 </select>
                             </label>
                             <div className='form-buttons'>

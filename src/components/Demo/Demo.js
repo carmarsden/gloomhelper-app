@@ -1,7 +1,8 @@
 import React from 'react';
 import Collapsible from '../../containers/Collapsible/Collapsible';
-import DEMODATA from './demodata';
+import DEMODATA from '../../data/demodata';
 import RenderParty from '../RenderParty/RenderParty';
+import RenderChar from '../RenderChar/RenderChar';
 
 class Demo extends React.Component {    
     render() {
@@ -10,7 +11,13 @@ class Demo extends React.Component {
         const partyArray = DEMODATA[0];
         const partyComponents = [];
         partyArray.forEach((party, i) => {
-            partyComponents.push(<RenderParty key={i} party={party} />)
+            partyComponents.push(<RenderParty key={i}>{party}</RenderParty>)
+        })
+
+        const charArray = DEMODATA[1];
+        const charComponents = [];
+        charArray.forEach((char, i) => {
+            charComponents.push(<RenderChar key={i}>{char}</RenderChar>)
         })
 
         return (
