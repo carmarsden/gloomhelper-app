@@ -101,6 +101,11 @@ class NewParty extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
 
+        // check if logged in
+        // if not, pop open create acct modal & break
+
+        // else continue
+
         // massage newParty object for submission
         const newParty = this.state.formFields;
         newParty.date_modified = new Date();
@@ -122,7 +127,7 @@ class NewParty extends React.Component {
                     form: errorText
                 }
             });
-        })    
+        })
     }
 
     render() {
