@@ -5,6 +5,7 @@ import MindthiefPerks from './Perks/MindthiefPerks';
 import ScoundrelPerks from './Perks/ScoundrelPerks';
 import SpellweaverPerks from './Perks/SpellweaverPerks';
 import TinkererPerks from './Perks/TinkererPerks';
+import CHARCLASSES from '../../data/charclasses';
 
 class CharForm extends React.Component {
     state = {
@@ -72,18 +73,8 @@ class CharForm extends React.Component {
     }
 
     render() {
-        // refactor this to take advantage of CHARCLASSES data obj
-        const characterClasses = {
-            brute: 'Inox Brute',
-            cragheart: 'Savvas Cragheart',
-            mindthief: 'Vermling Mindthief',
-            spellweaver: 'Orchid Spellweaver',
-            scoundrel: 'Human Scoundrel',
-            tinkerer: 'Quatryl Tinkerer',
-        }
-        const currentClassShort = this.props.charType;
-        const currentClassName = characterClasses[currentClassShort];
-        const perks = this.generatePerksForm(currentClassShort);
+        const currentClassName = CHARCLASSES.find(item => item.code === this.props.charType).name;
+        const perks = this.generatePerksForm(this.props.charType);
     
         return (
             <section className='bodysection'>
