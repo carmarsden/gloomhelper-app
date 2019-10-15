@@ -159,10 +159,11 @@ class CharForm extends React.Component {
 
                     <div className="form-buttons">
                         <button type='button' onClick={this.props.handleCancel}>Cancel</button>
-                        <button type='reset'>Reset Form</button>
+                        <button type='reset' onClick={this.props.handleReset}>Reset Form</button>
                         <button type='submit'>Save Character</button>
                     </div>
                 </form>
+                <p className='form-error'>{this.props.formError}</p>
             </section>
         )
     }
