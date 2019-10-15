@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsible from '../../containers/Collapsible/Collapsible';
+import DatabaseText from '../../containers/DatabaseText/DatabaseText';
 
 function generatePriceMod(rep) {
     const modIsPositive = (rep < -2) ? true : false;
@@ -24,7 +25,6 @@ function RenderParty(props) {
     const party = props.party;
     const reputation = (party.reputation > 0) ? `+${party.reputation}` : party.reputation;
     const priceMod = generatePriceMod(reputation);
-    const achievements = party.achievements.split('\n').map((item, i) => <span className='render-text' key={i}>{item}</span>);
 
     return (
         <Collapsible title={`Party: ${party.party_name}`}>
@@ -33,8 +33,8 @@ function RenderParty(props) {
                 <li>Location: {party.party_location}</li>
                 <li>Reputation: {reputation}</li>
                 <li>Shop Price Modifier: {priceMod}</li>
-                <li>Notes: {party.party_notes}</li>
-                <li>Achievements: {achievements}</li>
+                <li>Notes: <DatabaseText>{party.party_notes}</DatabaseText></li>
+                <li>Achievements: <DatabaseText>{party.achievements}</DatabaseText></li>
             </ul>
         </Collapsible>
     );

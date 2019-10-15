@@ -45,7 +45,3 @@ h1, h2, h3 {
     display: block;
     margin: 5px auto;
 }
-
-.render-text {
-    display: table;
-}
