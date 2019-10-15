@@ -22,7 +22,7 @@ function generatePriceMod(rep) {
 };
 
 function RenderParty(props) {
-    const party = props.party;
+    const party = props.children;
     const reputation = (party.reputation > 0) ? `+${party.reputation}` : party.reputation;
     const priceMod = generatePriceMod(reputation);
 
