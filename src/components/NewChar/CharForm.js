@@ -72,6 +72,7 @@ class CharForm extends React.Component {
     }
 
     render() {
+        // refactor this to take advantage of CHARCLASSES data obj
         const characterClasses = {
             brute: 'Inox Brute',
             cragheart: 'Savvas Cragheart',
