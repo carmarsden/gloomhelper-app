@@ -172,7 +172,6 @@ class App extends React.Component {
                     <NavBar 
                         handleOpenModal={this.handleOpenModal}
                         handleLogout={this.handleLogout}
-                        loggedIn={this.state.loggedIn}
                     />
 
                     <ReactModal 

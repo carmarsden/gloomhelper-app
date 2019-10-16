@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import AccountContext from '../../AccountContext';
 import './NavBar.css';
 
 class NavBar extends React.Component {
+    static contextType = AccountContext;
+
     generateAccountLinks() {
-        const loggedIn = this.props.loggedIn;
-        if (loggedIn) {
+        if (this.context.loggedIn) {
             return (
                 <li><NavLink to='/logout' onClick={this.props.handleLogout}>Log Out</NavLink></li>
             )
@@ -20,7 +22,7 @@ class NavBar extends React.Component {
     }
 
     render() {
-        const dashboardLink = (this.props.loggedIn) ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li> : <li><NavLink to='/demo'>Demo</NavLink></li>;
+        const dashboardLink = (this.context.loggedIn) ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li> : <li><NavLink to='/demo'>Demo</NavLink></li>;
         const accountLinks = this.generateAccountLinks();
 
         return (
