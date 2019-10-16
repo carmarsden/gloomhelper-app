@@ -212,7 +212,7 @@ class App extends React.Component {
                     />
                     <Route 
                         path='/dashboard'
-                        component={Dashboard}
+                        render={() => this.state.loggedIn ? <Dashboard /> : <Redirect to='/demo' />}
                     />
                     <Route 
                         path='/demo'
