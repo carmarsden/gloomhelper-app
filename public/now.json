@@ -10,9 +10,5 @@
             "src": ".*",
             "dest": "/index.html"
         }
-    ],
-    "env": {
-        "REACT_APP_API_BASE_URL": "https://gloomhelper-server.herokuapp.com/api",
-        "REACT_APP_TOKEN_KEY": "gloomhelper-auth-token"    
-    }
+    ]
 }
