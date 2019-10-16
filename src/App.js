@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import './App.css';
+import AccountContext from './AccountContext';
 
 // Components
 import NavBar from './components/NavBar/NavBar';
@@ -24,21 +25,32 @@ class App extends React.Component {
         loggedIn: TokenService.hasAuthToken(),
         showLoginModal: false,
         showCreateAcctModal: false,
-        loginError: null,
-        registerError: null,
+        messages: {
+            loginError: null,
+            registerError: null,
+            modalMessage: null,
+        }
     }
 
-    handleOpenModal = (screen) => {
+    handleOpenModal = (screen, message) => {
         if (screen === 'login') {
             this.setState({
                 showLoginModal: true,
                 showCreateAcctModal: false,
+                messages: {
+                    ...this.state.messages,
+                    modalMessage: message
+                }
             })
         }
         if (screen === 'createacct') {
             this.setState({
                 showLoginModal: false,
                 showCreateAcctModal: true,
+                messages: {
+                    ...this.state.messages,
+                    modalMessage: message
+                }
             })
         }
     }
@@ -48,8 +60,11 @@ class App extends React.Component {
         this.setState({
             showLoginModal: false,
             showCreateAcctModal: false,
-            loginError: null,
-            registerError: null,
+            messages: {
+                loginError: null,
+                registerError: null,
+                modalMessage: null,
+            }
         })
     }
 
@@ -71,18 +86,31 @@ class App extends React.Component {
                             loggedIn: true,
                             showLoginModal: false,
                             showCreateAcctModal: false,
-                            loginError: null,
-                            registerError: null,
+                            messages: {
+                                loginError: null,
+                                registerError: null,
+                                modalMessage: null,
+                            },
                         })
                     })
                     .catch(res => {
                         const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
-                        this.setState({ registerError: errorText });        
+                        this.setState({
+                            messages: {
+                                ...this.state.messages,
+                                registerError: errorText
+                            }
+                        });        
                     })
             })
             .catch(res => {
                 const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
-                this.setState({ registerError: errorText });
+                this.setState({
+                    messages: {
+                        ...this.state.messages,
+                        registerError: errorText
+                    }
+                });
             })
         ;
     }
@@ -102,12 +130,21 @@ class App extends React.Component {
                     loggedIn: true,
                     showLoginModal: false,
                     showCreateAcctModal: false,
-                    loginError: null,
+                    messages: {
+                        loginError: null,
+                        registerError: null,
+                        modalMessage: null,
+                    },          
                 })
             })
             .catch(res => {
                 const errorText = res.error ? res.error : 'Something went wrong! Please try again later.';
-                this.setState({ loginError: errorText });
+                this.setState({
+                    messages: {
+                        ...this.state.messages,
+                        loginError: errorText
+                    }
+                });
             })
         ;
     }
@@ -120,70 +157,77 @@ class App extends React.Component {
     }
 
     render() {
+        const contextValue = {
+            loggedIn: this.state.loggedIn,
+            handleOpenModal: this.handleOpenModal,
+        };
+
         return (
             <div className='App'>
-                <NavBar 
-                    handleOpenModal={this.handleOpenModal}
-                    handleLogout={this.handleLogout}
-                    loggedIn={this.state.loggedIn}
-                />
-
-                <ReactModal 
-                    isOpen={this.state.showLoginModal} 
-                    contentLabel='Login modal'
-                    onRequestClose={this.handleCloseModal}
-                    ariaHideApp={true}
-                    className='account-modal'
-                >
-                    <Login 
-                        handleLogin={this.handleLogin}
+                <AccountContext.Provider value={contextValue}>
+                    <NavBar 
                         handleOpenModal={this.handleOpenModal}
-                        handleCloseModal={this.handleCloseModal} 
-                        loginError={this.state.loginError}
+                        handleLogout={this.handleLogout}
+                        loggedIn={this.state.loggedIn}
                     />
-                </ReactModal>
 
-                <ReactModal 
-                    isOpen={this.state.showCreateAcctModal} 
-                    contentLabel='Create Account modal'
-                    onRequestClose={this.handleCloseModal}
-                    ariaHideApp={true}
-                    className='account-modal'
-                >
-                    <CreateAccount 
-                        handleCreateAccount={this.handleCreateAccount}
-                        handleOpenModal={this.handleOpenModal}
-                        handleCloseModal={this.handleCloseModal} 
-                        registerError={this.state.registerError}
+                    <ReactModal 
+                        isOpen={this.state.showLoginModal} 
+                        contentLabel='Login modal'
+                        onRequestClose={this.handleCloseModal}
+                        ariaHideApp={true}
+                        className='account-modal'
+                    >
+                        <Login 
+                            handleLogin={this.handleLogin}
+                            handleOpenModal={this.handleOpenModal}
+                            handleCloseModal={this.handleCloseModal} 
+                            loginError={this.state.messages.loginError}
+                            modalMessage={this.state.messages.modalMessage}
+                        />
+                    </ReactModal>
+
+                    <ReactModal 
+                        isOpen={this.state.showCreateAcctModal} 
+                        contentLabel='Create Account modal'
+                        onRequestClose={this.handleCloseModal}
+                        ariaHideApp={true}
+                        className='account-modal'
+                    >
+                        <CreateAccount 
+                            handleCreateAccount={this.handleCreateAccount}
+                            handleOpenModal={this.handleOpenModal}
+                            handleCloseModal={this.handleCloseModal} 
+                            registerError={this.state.messages.registerError}
+                            modalMessage={this.state.messages.modalMessage}
+                        />
+                    </ReactModal>
+
+                    <Route 
+                        exact path='/'
+                        component={HomePage}
                     />
-                </ReactModal>
-
-                <Route 
-                    exact path='/'
-                    component={HomePage}
-                />
-                <Route 
-                    path='/dashboard'
-                    component={Dashboard}
-                />
-                <Route 
-                    path='/demo'
-                    component={Demo}
-                />
-                <Route 
-                    path='/newparty'
-                    component={NewParty}
-                />
-                <Route 
-                    path='/newchar'
-                    component={NewChar}
-                />
-                <Route 
-                    path='/logout'
-                    render={() => <Redirect to='/' />}
-                />
-
-
+                    <Route 
+                        path='/dashboard'
+                        component={Dashboard}
+                    />
+                    <Route 
+                        path='/demo'
+                        component={Demo}
+                    />
+                    <Route 
+                        path='/newparty'
+                        component={NewParty}
+                    />
+                    <Route 
+                        path='/newchar'
+                        component={NewChar}
+                    />
+                    <Route 
+                        path='/logout'
+                        render={() => <Redirect to='/' />}
+                    />
+                </AccountContext.Provider>
                 <Footer />
             </div>
         )
