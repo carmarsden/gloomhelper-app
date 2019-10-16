@@ -68,6 +68,10 @@ class App extends React.Component {
         })
     }
 
+    promptLogin = () => {
+        this.handleOpenModal('createacct', 'To save your work for the future, please create an account or log in!');
+    }
+
     handleCreateAccount = e => {
         e.preventDefault();
 
@@ -159,7 +163,7 @@ class App extends React.Component {
     render() {
         const contextValue = {
             loggedIn: this.state.loggedIn,
-            handleOpenModal: this.handleOpenModal,
+            promptLogin: this.promptLogin,
         };
 
         return (

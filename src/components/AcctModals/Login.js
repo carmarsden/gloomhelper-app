@@ -9,11 +9,13 @@ class Login extends React.Component {
             return '';
         }
     }
+
     render() {
         const loginError = this.generateLoginError();
         return (
             <form className='account-form' onSubmit={this.props.handleLogin}>
                 {loginError}
+                <p className='modal-message'>{this.props.modalMessage}</p>
                 <fieldset>
                     <legend>Log In</legend>
                     <label>Username

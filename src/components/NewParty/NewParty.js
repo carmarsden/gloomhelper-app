@@ -1,7 +1,10 @@
 import React from 'react';
+import AccountContext from '../../AccountContext';
 import EntriesService from '../../services/entries-service';
 
 class NewParty extends React.Component {
+    static contextType = AccountContext;
+
     state = {
         formFields: {
             party_name: '',
@@ -75,6 +78,10 @@ class NewParty extends React.Component {
         })
     }
 
+    promptLogin() {
+        this.context.handleOpenModal('createacct', 'To save your work for the future, please create an account or log in!');
+    }
+
     handleCancel = e => {
         this.props.history.goBack()
     }
@@ -101,10 +108,10 @@ class NewParty extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        // check if logged in
-        // if not, pop open create acct modal & break
-
-        // else continue
+        if (!this.context.loggedIn) {
+            this.context.promptLogin();
+            return;
+        }
 
         // massage newParty object for submission
         const newParty = this.state.formFields;

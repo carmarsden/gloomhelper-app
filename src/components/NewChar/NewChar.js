@@ -1,9 +1,12 @@
 import React from 'react';
-import CharForm from './CharForm';
+import AccountContext from '../../AccountContext';
 import EntriesService from '../../services/entries-service';
 import CHARCLASSES from '../../data/charclasses';
+import CharForm from './CharForm';
 
 class NewChar extends React.Component {
+    static contextType = AccountContext;
+
     state = {
         charType: '',
         formError: '',
@@ -60,6 +63,11 @@ class NewChar extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+
+        if (!this.context.loggedIn) {
+            this.context.promptLogin();
+            return;
+        }
 
         const newChar = this.generateCharObj(e.target);
         console.log(newChar);
