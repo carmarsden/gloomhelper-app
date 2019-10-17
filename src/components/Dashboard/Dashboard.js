@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import RenderParty from '../RenderParty/RenderParty';
 import RenderChar from '../RenderChar/RenderChar';
 import EntriesService from '../../services/entries-service';
@@ -25,21 +26,48 @@ class Dashboard extends React.Component {
         ;
     }
 
-    render() {
-        const error = this.state.error;
-        const loadingdisplay = this.state.loading ? <p className='form-error'>... Loading your dashboard...</p> : '';
-
+    generateParties = () => {
         const partyArray = this.state.parties;
         const partyComponents = [];
         partyArray.forEach((party, i) => {
             partyComponents.push(<RenderParty key={i}>{party}</RenderParty>)
         })
 
+        if (partyComponents.length === 0) {
+            return (
+                <section className='bodysection'>
+                    <p>Oh no, you don't have any saved parties! Why not <Link to='/newparty'>add one</Link>?</p>
+                </section>
+            )
+        } else {
+            return partyComponents;
+        }
+    }
+
+    generateChars = () => {
         const charArray = this.state.characters;
         const charComponents = [];
         charArray.forEach((char, i) => {
             charComponents.push(<RenderChar key={i}>{char}</RenderChar>)
         })
+
+        if (charComponents.length === 0) {
+            return (
+                <section className='bodysection'>
+                    <p>Oh no, you don't have any saved characters! Why not <Link to='/newchar'>add one</Link>?</p>
+                </section>
+            )
+        } else {
+            return charComponents;
+        }
+    }
+
+    render() {
+        const error = this.state.error;
+        const loadingdisplay = this.state.loading ? <p className='form-error'>... Loading your dashboard...</p> : '';
+
+        const partyComponents = this.generateParties();
+        const charComponents = this.generateChars();
 
         return (
             <main role='main'>
