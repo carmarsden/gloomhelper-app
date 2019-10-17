@@ -29,7 +29,7 @@ class NavBar extends React.Component {
             <header role="banner">
                 <nav role="navigation">
                     <ul className="navlist">
-                        <li><NavLink exact to='/'>Gloomhelper Logo</NavLink></li>
+                        <li><NavLink exact to='/'>[Logo] Home</NavLink></li>
                         {dashboardLink}
                         <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li><NavLink to='/newchar'>+ Char</NavLink></li>
