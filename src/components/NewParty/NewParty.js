@@ -156,6 +156,7 @@ class NewParty extends React.Component {
                                 type='text' 
                                 name='party_name'
                                 id='party_name' 
+                                maxLength='50'
                                 onChange={e => this.handleInputChange(e)}
                                 value={this.state.formFields.party_name}
                                 required 
@@ -167,6 +168,7 @@ class NewParty extends React.Component {
                                 type='text' 
                                 name='location' 
                                 id='location' 
+                                maxLength='50'
                                 onChange={e => this.handleInputChange(e)}
                                 value={this.state.formFields.location}
                             />

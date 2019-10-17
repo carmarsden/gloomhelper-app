@@ -84,7 +84,14 @@ class CharForm extends React.Component {
                     <fieldset>
                         <legend>Base Stats</legend>
                         <label>Name*: 
-                            <input placeholder='Joe Smith' type='text' name='character_name' id='character_name' required/>
+                            <input 
+                                placeholder='Joe Smith' 
+                                type='text' 
+                                name='character_name' 
+                                id='character_name' 
+                                maxLength='50'
+                                required
+                            />
                         </label>
                         <label>XP*: 
                             <input 
@@ -93,6 +100,7 @@ class CharForm extends React.Component {
                                 name='xp' 
                                 id='xp' 
                                 min='0' 
+                                max='10000'
                                 onChange={e => this.updateXp(e.target.value)}
                                 required />
                         </label>
