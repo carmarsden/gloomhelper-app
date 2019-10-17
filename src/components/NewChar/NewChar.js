@@ -54,7 +54,11 @@ class NewChar extends React.Component {
     }
 
     handleCancel = e => {
-        this.props.history.goBack()
+        if (this.context.loggedIn) {
+            this.props.history.push('/dashboard')
+        } else {
+            this.props.history.push('/')
+        }
     }
 
     handleReset = e => {
