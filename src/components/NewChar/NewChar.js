@@ -108,15 +108,15 @@ class NewChar extends React.Component {
                 <section className='bodysection'>
                     <form className='newsheet-form' onSubmit={this.handleAddChar}>
                         <fieldset>
-                            <legend>Choose Character</legend>
-                            <label>Character Class: 
+                            <legend>Select Character Class</legend>
+                            <label>Classes: 
                                 <select id='character_class' ref={this.charTypeRef} required>
                                     <option value=''>Choose class</option>
                                     {classOptions}
                                 </select>
                             </label>
                             <div className='form-buttons'>
-                                <button type='submit'>Add Character</button>
+                                <button type='submit'>Start Character</button>
                             </div>
                         </fieldset>
                     </form>
