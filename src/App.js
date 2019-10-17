@@ -85,6 +85,13 @@ class App extends React.Component {
             password: password.value,
         };
 
+        this.setState({
+            messages: {
+                ...this.state.messages,
+                modalMessage: 'Creating account...'
+            }
+        })
+
         AccountService.register(user)
             .then(res => {
                 AccountService.login(user)
@@ -106,6 +113,7 @@ class App extends React.Component {
                         this.setState({
                             messages: {
                                 ...this.state.messages,
+                                modalMessage: null,
                                 registerError: errorText
                             }
                         });        
@@ -116,6 +124,7 @@ class App extends React.Component {
                 this.setState({
                     messages: {
                         ...this.state.messages,
+                        modalMessage: null,
                         registerError: errorText
                     }
                 });
@@ -130,6 +139,13 @@ class App extends React.Component {
             username: username.value,
             password: password.value,
         };
+
+        this.setState({
+            messages: {
+                ...this.state.messages,
+                modalMessage: 'Logging in...'
+            }
+        })
 
         AccountService.login(credentials)
             .then(res => {
@@ -150,6 +166,7 @@ class App extends React.Component {
                 this.setState({
                     messages: {
                         ...this.state.messages,
+                        modalMessage: null,
                         loginError: errorText
                     }
                 });
