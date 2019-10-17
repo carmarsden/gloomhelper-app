@@ -69,7 +69,11 @@ class App extends React.Component {
     }
 
     promptLogin = () => {
-        this.handleOpenModal('createacct', 'To save your work for the future, please create an account or log in!');
+        const message = <>
+            <p>To save your work for the future, please create an account or log in!</p>
+            <p>Be sure to hit save after you are logged in to save your form.</p>
+        </>;
+        this.handleOpenModal('createacct', message);
     }
 
     handleCreateAccount = e => {

@@ -143,7 +143,7 @@ class CreateAccount extends React.Component {
                         <button type='submit' disabled={!this.state.formValid}>Create Account</button>
                     </div>
                 </fieldset>
-                <p>Already have an account? <Link to='#' onClick={() => this.props.handleOpenModal('login')}>Log In</Link></p>
+                <p>Already have an account? <Link to='#' onClick={() => this.props.handleOpenModal('login', this.props.modalMessage)}>Log In</Link></p>
             </form>    
         )
     }

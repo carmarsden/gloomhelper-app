@@ -29,7 +29,7 @@ class Login extends React.Component {
                         <button type='submit'>Log In</button>
                     </div>
                 </fieldset>
-                <p>New User? <Link to='#' onClick={() => this.props.handleOpenModal('createacct')}>Create Account</Link></p>
+                <p>New User? <Link to='#' onClick={() => this.props.handleOpenModal('createacct', this.props.modalMessage)}>Create Account</Link></p>
             </form>    
         )
     }
