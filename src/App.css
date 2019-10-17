@@ -12,9 +12,25 @@ h1, h2, h3 {
     text-align: center;
 }
 
+.screenreader-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
 .newsheet-form label {
     display: block;
     margin: 5px auto;
+}
+
+#perks-fieldset label {
+    display: inline;
+    margin: 5px;
 }
 
 .newsheet-form textarea {
