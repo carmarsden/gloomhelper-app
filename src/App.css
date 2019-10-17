@@ -28,7 +28,7 @@ h1, h2, h3 {
     margin: 5px auto;
 }
 
-#perks-fieldset label {
+#perks-fieldset label, #goals-fieldset label {
     display: inline;
     margin: 5px;
 }
