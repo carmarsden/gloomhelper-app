@@ -3,6 +3,7 @@
     --link: #73361E;
     --tan: #D2BEB4;
     --white: #F2EAE6;
+    --red: #B34E2C;
 }
 
 main {
@@ -95,7 +96,20 @@ a:hover {
 }
 
 .form-error {
-    color: red;
+    color: var(--red);
+}
+
+#goals-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#goals-wrapper div {
+    width: fit-content;
+    min-width: 30%;
+    text-align: center;
 }
 
 /** CHARACTER PERKS */

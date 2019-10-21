@@ -125,53 +125,55 @@ class CharForm extends React.Component {
 
                     <fieldset id='goals-fieldset'>
                         <legend>Battle Goals</legend>
-                        <div> 
-                            <label htmlFor='goals_check_1_1'>√: </label>
-                            <label htmlFor='goals_check_1_2' className='screenreader-only'>(check two of three)</label>
-                            <label htmlFor='goals_check_1_3' className='screenreader-only'>(check three of three)</label>
-                            <input type='checkbox' id='goals_check_1_1' name='goals_check_1_1' />
-                            <input type='checkbox' id='goals_check_1_2' name='goals_check_1_2' />
-                            <input type='checkbox' id='goals_check_1_3' name='goals_check_1_3' />
-                        </div>
-                        <div>
-                            <label htmlFor='goals_check_2_1'>√: </label>
-                            <label htmlFor='goals_check_2_2' className='screenreader-only'>(check two of three)</label>
-                            <label htmlFor='goals_check_2_3' className='screenreader-only'>(check three of three)</label>
-                            <input type='checkbox' id='goals_check_2_1' name='goals_check_2_1' />
-                            <input type='checkbox' id='goals_check_2_2' name='goals_check_2_2' />
-                            <input type='checkbox' id='goals_check_2_3' name='goals_check_2_3' />
-                        </div>
-                        <div>
-                            <label htmlFor='goals_check_3_1'>√: </label>
-                            <label htmlFor='goals_check_3_2' className='screenreader-only'>(check two of three)</label>
-                            <label htmlFor='goals_check_3_3' className='screenreader-only'>(check three of three)</label>
-                            <input type='checkbox' id='goals_check_3_1' name='goals_check_3_1' />
-                            <input type='checkbox' id='goals_check_3_2' name='goals_check_3_2' />
-                            <input type='checkbox' id='goals_check_3_3' name='goals_check_3_3' />
-                        </div>
-                        <div>
-                            <label htmlFor='goals_check_4_1'>√: </label>
-                            <label htmlFor='goals_check_4_2' className='screenreader-only'>(check two of three)</label>
-                            <label htmlFor='goals_check_4_3' className='screenreader-only'>(check three of three)</label>
-                            <input type='checkbox' id='goals_check_4_1' name='goals_check_4_1' />
-                            <input type='checkbox' id='goals_check_4_2' name='goals_check_4_2' />
-                            <input type='checkbox' id='goals_check_4_3' name='goals_check_4_3' />
-                        </div>
-                        <div>
-                            <label htmlFor='goals_check_5_1'>√: </label>
-                            <label htmlFor='goals_check_5_2' className='screenreader-only'>(check two of three)</label>
-                            <label htmlFor='goals_check_5_3' className='screenreader-only'>(check three of three)</label>
-                            <input type='checkbox' id='goals_check_5_1' name='goals_check_5_1' />
-                            <input type='checkbox' id='goals_check_5_2' name='goals_check_5_2' />
-                            <input type='checkbox' id='goals_check_5_3' name='goals_check_5_3' />
-                        </div>
-                        <div>
-                            <label htmlFor='goals_check_6_1'>√: </label>
-                            <label htmlFor='goals_check_6_2' className='screenreader-only'>(check two of three)</label>
-                            <label htmlFor='goals_check_6_3' className='screenreader-only'>(check three of three)</label>
-                            <input type='checkbox' id='goals_check_6_1' name='goals_check_6_1' />
-                            <input type='checkbox' id='goals_check_6_2' name='goals_check_6_2' />
-                            <input type='checkbox' id='goals_check_6_3' name='goals_check_6_3' />
+                        <div id='goals-wrapper'>
+                            <div> 
+                                <label htmlFor='goals_check_1_1'>√: </label>
+                                <label htmlFor='goals_check_1_2' className='screenreader-only'>(check two of three)</label>
+                                <label htmlFor='goals_check_1_3' className='screenreader-only'>(check three of three)</label>
+                                <input type='checkbox' id='goals_check_1_1' name='goals_check_1_1' />
+                                <input type='checkbox' id='goals_check_1_2' name='goals_check_1_2' />
+                                <input type='checkbox' id='goals_check_1_3' name='goals_check_1_3' />
+                            </div>
+                            <div>
+                                <label htmlFor='goals_check_2_1'>√: </label>
+                                <label htmlFor='goals_check_2_2' className='screenreader-only'>(check two of three)</label>
+                                <label htmlFor='goals_check_2_3' className='screenreader-only'>(check three of three)</label>
+                                <input type='checkbox' id='goals_check_2_1' name='goals_check_2_1' />
+                                <input type='checkbox' id='goals_check_2_2' name='goals_check_2_2' />
+                                <input type='checkbox' id='goals_check_2_3' name='goals_check_2_3' />
+                            </div>
+                            <div>
+                                <label htmlFor='goals_check_3_1'>√: </label>
+                                <label htmlFor='goals_check_3_2' className='screenreader-only'>(check two of three)</label>
+                                <label htmlFor='goals_check_3_3' className='screenreader-only'>(check three of three)</label>
+                                <input type='checkbox' id='goals_check_3_1' name='goals_check_3_1' />
+                                <input type='checkbox' id='goals_check_3_2' name='goals_check_3_2' />
+                                <input type='checkbox' id='goals_check_3_3' name='goals_check_3_3' />
+                            </div>
+                            <div>
+                                <label htmlFor='goals_check_4_1'>√: </label>
+                                <label htmlFor='goals_check_4_2' className='screenreader-only'>(check two of three)</label>
+                                <label htmlFor='goals_check_4_3' className='screenreader-only'>(check three of three)</label>
+                                <input type='checkbox' id='goals_check_4_1' name='goals_check_4_1' />
+                                <input type='checkbox' id='goals_check_4_2' name='goals_check_4_2' />
+                                <input type='checkbox' id='goals_check_4_3' name='goals_check_4_3' />
+                            </div>
+                            <div>
+                                <label htmlFor='goals_check_5_1'>√: </label>
+                                <label htmlFor='goals_check_5_2' className='screenreader-only'>(check two of three)</label>
+                                <label htmlFor='goals_check_5_3' className='screenreader-only'>(check three of three)</label>
+                                <input type='checkbox' id='goals_check_5_1' name='goals_check_5_1' />
+                                <input type='checkbox' id='goals_check_5_2' name='goals_check_5_2' />
+                                <input type='checkbox' id='goals_check_5_3' name='goals_check_5_3' />
+                            </div>
+                            <div>
+                                <label htmlFor='goals_check_6_1'>√: </label>
+                                <label htmlFor='goals_check_6_2' className='screenreader-only'>(check two of three)</label>
+                                <label htmlFor='goals_check_6_3' className='screenreader-only'>(check three of three)</label>
+                                <input type='checkbox' id='goals_check_6_1' name='goals_check_6_1' />
+                                <input type='checkbox' id='goals_check_6_2' name='goals_check_6_2' />
+                                <input type='checkbox' id='goals_check_6_3' name='goals_check_6_3' />
+                            </div>
                         </div>
                     </fieldset>
 
