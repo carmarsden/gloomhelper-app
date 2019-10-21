@@ -5,11 +5,13 @@
 .collapsible-header {
     display: block;
     width: 100%;
-    background-color: #eee;
+    border: 2px solid var(--black);
+    border-radius: 2px;
+    background: none;
 }
 
 .collapsible-header:focus, .collapsible-header:hover {
-    background-color: #bbb;
+    background-color: var(--tan);
 }
 
 .collapsible-header h2 {
@@ -23,7 +25,7 @@
     height: 0; 
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-top: 12px solid #000;  
+    border-top: 12px solid var(--black);  
 }
 
 .arrow-right {
@@ -33,7 +35,7 @@
     height: 0; 
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
-    border-left: 12px solid #000;  
+    border-left: 12px solid var(--black);  
 }
 
 .collapsible-open {

@@ -1,16 +1,13 @@
+:root {
+    --black: #24120D;
+    --link: #6B230D;
+    --tan: #D2BEB4;
+    --white: #F2EAE6;
+}
+
 main {
     margin: 0 4.5% 0 5.5%;
     padding: 0;
-}
-
-.bodysection {
-    min-height: 200px;
-    padding: 30px 15px;
-}
-
-h1, h2, h3 {
-    font-family: 'Pirata One', cursive;
-    text-align: center;
 }
 
 .screenreader-only {
@@ -24,6 +21,39 @@ h1, h2, h3 {
     position: absolute;
 }
 
+/** GET RID OF THIS? */
+.bodysection {
+    min-height: 200px;
+    padding: 30px 15px;
+}
+
+
+/** TEXT STYLING */
+h1, h2, h3 {
+    font-family: 'Pirata One', cursive;
+    text-align: center;
+}
+
+a {
+    color: var(--link);
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/** PARTY & CHAR FORM STYLING */
+.newsheet-form fieldset {
+    border: 2px solid var(--black);
+    border-radius: 2px;
+}
+
+.newsheet-form legend {
+    font-family: 'Pirata One', cursive;
+}
+
 .newsheet-form label {
     display: block;
     margin: 5px auto;
@@ -34,18 +64,41 @@ h1, h2, h3 {
     margin: 5px;
 }
 
-.newsheet-form textarea {
+.newsheet-form input[type=text], .newsheet-form input[type=number], .newsheet-form select, .newsheet-form textarea {
+    background-color: var(--white);
+    color: var(--black);
     vertical-align: middle;
+    margin: 5px 10px;
+    padding: 5px;
+    border: 1px solid var(--black);
+    border-radius: 2px;
 }
 
 .form-buttons {
     text-align: center;
 }
 
+.newsheet-form button {
+    background-color: var(--white);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--black);
+    margin: 5px 10px;
+    padding: 5px;
+    border: 2px solid var(--black);
+    border-radius: 2px;
+}
+
+.newsheet-form button:hover, .newsheet-form button:active, .newsheet-form button:focus {
+    background-color: var(--tan);
+}
+
 .form-error {
     color: red;
 }
 
+
+/** MODAL STYLING */
 .modal-message {
     font-weight: bold;
 }
