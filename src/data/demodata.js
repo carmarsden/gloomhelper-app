@@ -27,7 +27,7 @@ const DEMODATA = [
             "goals_4": 0,
             "goals_5": 0,
             "goals_6": 0,
-            "perks": "000010000000000",
+            "perks": "000100000000000",
             "date_modified": "2019-10-14T19:11:25.822Z"
         },
         {

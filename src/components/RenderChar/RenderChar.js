@@ -2,7 +2,7 @@ import React from 'react';
 import Collapsible from '../../containers/Collapsible/Collapsible';
 import DatabaseText from '../../containers/DatabaseText/DatabaseText';
 import CHARCLASSES from '../../data/charclasses';
-import CHARPERKS from '../../data/charperks';
+import allPerks from '../../data/charperks';
 
 function generateLevel(xp) {
     let level;
@@ -35,7 +35,7 @@ function generateLevel(xp) {
 
 function generatePerks(classType, perkStr) {
     const perkList = [];
-    const perkArr = CHARPERKS.find(item => item.code === classType).perks;
+    const perkArr = allPerks().find(item => item.code === classType).perks;
     for (let i = 0; i < 15; i++) {
         if (perkStr[i] === '1') {
             if (typeof(perkArr[i]) === 'number') {

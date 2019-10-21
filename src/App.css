@@ -48,6 +48,7 @@ a:hover {
 .newsheet-form fieldset {
     border: 2px solid var(--black);
     border-radius: 2px;
+    width: 100%;
 }
 
 .newsheet-form legend {

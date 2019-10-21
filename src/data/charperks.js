@@ -1,123 +1,128 @@
+import React from 'react';
+import images from '../images/images';
+
 // number x means that perk is the same as the perk x prior
 // all perks arrays should have 15 items total
 
-const CHARPERKS = [
-    {
-        code: 'brute',
-        perks: [
-            'Remove two -1 cards',
-            'Replace one -1 card with one +1 card',
-            'Add two +1 cards',
-            1,
-            'Add one +3 card',
-            'Add three PUSH 1 cards',
-            1,
-            'Add two PIERCE 3 cards',
-            'Add one STUN card',
-            1,
-            'Add one DISARM card and one MUDDLE card',
-            'Add one ADD TARGET card',
-            1,
-            'Add one +1 SHIELD 1 Self card',
-            'Ignore negative item effects and add one +1 card',
-        ]
-    },
-    {
-        code: 'cragheart',
-        perks: [
-            'Remove four +0 cards',
-            'Replace one -1 card with one +1 card',
-            1,
-            2,
-            'Add one -2 card and two +2 cards',
-            'Add one +1 IMMOBILIZE card',
-            1,
-            'Add one +2 MUDDLE card',
-            1,
-            'Add two PUSH 2 cards',
-            'Add two EARTH ELEMENT cards',
-            1,
-            'Add two AIR ELEMENT cards',
-            'Ignore negative item effects',
-            'Ignore negative scenario effects'
-        ]
-    },
-    {
-        code: 'mindthief',
-        perks: [
-            'Remove two -1 cards',
-            1,
-            'Remove four +0 cards',
-            'Replace two +1 cards with two +2 cards',
-            'Replace one -2 card with one +0 card',
-            'Add one +2 ICE ELEMENT card',
-            1,
-            'Add two +1 cards',
-            1,
-            'Add three PULL 1 cards',
-            'Add three MUDDLE cards',
-            'Add two IMMOBILIZE cards',
-            'Add one STUN card',
-            'Add one DISARM card and one MUDDLE card',
-            'Ignore negative scenario effects'
-        ]
-    },
-    {
-        code: 'spellweaver',
-        perks: [
-            'Remove four +0 cards',
-            'Replace one -1 card with one +1 card',
-            1,
-            'Add two +1 cards',
-            1,
-            'Add one +0 STUN card',
-            'Add one +1 WOUND card',
-            'Add one +1 IMMOBILIZE card',
-            'Add one +1 CURSE card',
-            'Add one +2 FIRE ELEMENT card',
-            1,
-            'Add one +2 ICE ELEMENT card',
-            1,
-            'Add one EARTH ELEMENT and one AIR ELEMENT card',
-            'Add one LIGHT ELEMENT and one DARK ELEMENT card'
-        ]
-    },
-    {
-        code: 'scoundrel',
-        perks: [
-            'Remove two -1 cards',
-            1,
-            'Remove four +0 cards',
-            'Replace one -2 card with one +0 card',
-            'Replace one -1 card with one +1 card',
-            'Replace one +0 card with one +2 card',
-            1,
-            'Add two +1 cards',
-            1,
-            'Add two PIERCE 3 cards',
-            'Add two POISON cards',
-            1,
-            'Add two MUDDLE cards',
-            'Add one INVISIBLE card',
-            'Ignore negative scenario effects'
-        ]
-    },
-    {
-        code: 'tinkerer',
-        perks: [
-            'Remove two -1 cards',
-            'Replace one -2 card with one +0 card',
-            'Add two +1 cards',
-            'Add one +3 card',
-            'Add two FIRE ELEMENT cards',
-            'Add three MUDDLE cards',
-            'Add one +1 WOUND card',
-            'Add one +1 IMMOBILIZE card',
-            'Add one +1 HEAL 2 card',
-            'Add one +0 ADD TARGET card',
-            'Ignore negative scenario effects'
-        ]
-    }
-];
+function allPerks() {
+    return ([
+        {
+            code: 'brute',
+            perks: [
+                <span>Remove two <img src={images.mods.minus1} alt='-1' className='perk-icon' /> cards</span>,
+                <span>Replace one <img src={images.mods.minus1} alt='-1' className='perk-icon' /> card with one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> card</span>,
+                <span>Add two <img src={images.mods.plus1} alt='+1' className='perk-icon' /> cards</span>,
+                1,
+                <span>Add one +3 card</span>,
+                <span>Add three <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> PUSH <img src={images.effects.push} alt='PUSH' className='perk-icon' /> 1 cards</span>,
+                1,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> PIERCE <img src={images.effects.pierce} alt='PIERCE' className='perk-icon' /> 3 cards</span>,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> STUN <img src={images.effects.stun} alt='STUN' className='perk-icon' /> card</span>,
+                1,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> DISARM <img src={images.effects.disarm} alt='DISARM' className='perk-icon' /> card and one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> MUDDLE <img src={images.effects.muddle} alt='MUDDLE' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> ADD TARGET <img src={images.effects.target} alt='ADD TARGET' className='perk-icon' /> card</span>,
+                1,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> Shield <img src={images.effects.shield} alt='Shield' className='perk-icon' />1, Self card</span>,
+                <span>Ignore negative item effects and add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> card</span>,
+            ]
+        },
+        {
+            code: 'cragheart',
+            perks: [
+                <span>Remove four <img src={images.mods.plus0} alt='+0' className='perk-icon' /> cards</span>,
+                <span>Replace one <img src={images.mods.minus1} alt='-1' className='perk-icon' /> card with one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> card</span>,
+                1,
+                2,
+                <span>Add one <img src={images.mods.minus2} alt='-2' className='perk-icon' /> card and two <img src={images.mods.plus2} alt='+2' className='perk-icon' /> cards</span>,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> IMMOBILIZE <img src={images.effects.immobilize} alt='IMMOBILIZE' className='perk-icon' /> card</span>,
+                1,
+                <span>Add one <img src={images.mods.plus2} alt='+2' className='perk-icon' /> MUDDLE <img src={images.effects.muddle} alt='MUDDLE' className='perk-icon' /> card</span>,
+                1,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> PUSH <img src={images.effects.push} alt='PUSH' className='perk-icon' /> 2 cards</span>,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.elements.earth} alt='EARTH ELEMENT' className='perk-icon' /> cards</span>,
+                1,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.elements.air} alt='AIR ELEMENT' className='perk-icon' /> cards</span>,
+                <span>Ignore negative item effects</span>,
+                <span>Ignore negative scenario effects</span>,
+            ]
+        },
+        {
+            code: 'mindthief',
+            perks: [
+                <span>Remove two <img src={images.mods.minus1} alt='-1' className='perk-icon' /> cards</span>,
+                1,
+                <span>Remove four <img src={images.mods.plus0} alt='+0' className='perk-icon' /> cards</span>,
+                <span>Replace two <img src={images.mods.plus1} alt='+1' className='perk-icon' /> cards with two <img src={images.mods.plus2} alt='+2' className='perk-icon' /> cards</span>,
+                <span>Replace one <img src={images.mods.minus2} alt='-2' className='perk-icon' /> card with one <img src={images.mods.plus0} alt='+0' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.mods.plus2} alt='+2' className='perk-icon' /> <img src={images.elements.ice} alt='ICE ELEMENT' className='perk-icon' /> card</span>,
+                1,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.mods.plus1} alt='+1' className='perk-icon' /> cards</span>,
+                1,
+                <span>Add three <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> PULL <img src={images.effects.pull} alt='PULL' className='perk-icon' /> 1 cards</span>,
+                <span>Add three <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> MUDDLE <img src={images.effects.muddle} alt='MUDDLE' className='perk-icon' /> cards</span>,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> IMMOBILIZE <img src={images.effects.immobilize} alt='IMMOBILIZE' className='perk-icon' /> cards</span>,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> STUN <img src={images.effects.stun} alt='STUN' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> DISARM <img src={images.effects.disarm} alt='DISARM' className='perk-icon' /> card and one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> MUDDLE <img src={images.effects.muddle} alt='MUDDLE' className='perk-icon' /> card</span>,
+                <span>Ignore negative scenario effects</span>,
+            ]
+        },
+        {
+            code: 'spellweaver',
+            perks: [
+                <span>Remove four <img src={images.mods.plus0} alt='+0' className='perk-icon' /> cards</span>,
+                <span>Replace one <img src={images.mods.minus1} alt='-1' className='perk-icon' /> card with one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> card</span>,
+                1,
+                <span>Add two <img src={images.mods.plus1} alt='+1' className='perk-icon' /> cards</span>,
+                1,
+                <span>Add one <img src={images.mods.plus0} alt='+0' className='perk-icon' /> STUN <img src={images.effects.stun} alt='STUN' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> WOUND <img src={images.effects.wound} alt='WOUND' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> IMMOBILIZE <img src={images.effects.immobilize} alt='IMMOBILIZE' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> CURSE <img src={images.effects.curse} alt='CURSE' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.mods.plus2} alt='+2' className='perk-icon' /> <img src={images.elements.fire} alt='FIRE ELEMENT' className='perk-icon' /> card</span>,
+                1,
+                <span>Add one <img src={images.mods.plus2} alt='+2' className='perk-icon' /> <img src={images.elements.ice} alt='ICE ELEMENT' className='perk-icon' /> card</span>,
+                1,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.elements.earth} alt='EARTH ELEMENT' className='perk-icon' /> and one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.elements.air} alt='AIR ELEMENT' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.elements.light} alt='LIGHT ELEMENT' className='perk-icon' /> and one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.elements.dark} alt='DARK ELEMENT' className='perk-icon' /> card</span>,
+            ]
+        },
+        {
+            code: 'scoundrel',
+            perks: [
+                <span>Remove two <img src={images.mods.minus1} alt='-1' className='perk-icon' /> cards</span>,
+                1,
+                <span>Remove four <img src={images.mods.plus0} alt='+0' className='perk-icon' /> cards</span>,
+                <span>Replace one <img src={images.mods.minus2} alt='-2' className='perk-icon' /> card with one <img src={images.mods.plus0} alt='+0' className='perk-icon' /> card</span>,
+                <span>Replace one <img src={images.mods.minus1} alt='-1' className='perk-icon' /> card with one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> card</span>,
+                <span>Replace one <img src={images.mods.plus0} alt='+0' className='perk-icon' /> card with one <img src={images.mods.plus2} alt='+2' className='perk-icon' /> card</span>,
+                1,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.mods.plus1} alt='+1' className='perk-icon' /> cards</span>,
+                1,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> PIERCE <img src={images.effects.pierce} alt='PIERCE' className='perk-icon' /> 3 cards</span>,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> POISON <img src={images.effects.poison} alt='POISON' className='perk-icon' /> cards</span>,
+                1,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> MUDDLE <img src={images.effects.muddle} alt='MUDDLE' className='perk-icon' /> cards</span>,
+                <span>Add one <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> INVISIBLE <img src={images.effects.invisible} alt='INVISIBLE' className='perk-icon' /> card</span>,
+                <span>Ignore negative scenario effects</span>,
+            ]
+        },
+        {
+            code: 'tinkerer',
+            perks: [
+                <span>Remove two <img src={images.mods.minus1} alt='-1' className='perk-icon' /> cards</span>,
+                <span>Replace one <img src={images.mods.minus2} alt='-2' className='perk-icon' /> card with one <img src={images.mods.plus0} alt='+0' className='perk-icon' /> card</span>,
+                <span>Add two <img src={images.mods.plus1} alt='+1' className='perk-icon' /> cards</span>,
+                <span>Add one +3 card</span>,
+                <span>Add two <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> <img src={images.elements.fire} alt='FIRE ELEMENT' className='perk-icon' /> cards</span>,
+                <span>Add three <img src={images.effects.rolling} alt='rolling' className='perk-icon' /> MUDDLE <img src={images.effects.muddle} alt='MUDDLE' className='perk-icon' /> cards</span>,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> WOUND <img src={images.effects.wound} alt='wound' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> IMMOBILIZE <img src={images.effects.immobilize} alt='IMMOBILIZE' className='perk-icon' /> card</span>,
+                <span>Add one <img src={images.mods.plus1} alt='+1' className='perk-icon' /> HEAL <img src={images.effects.heal} alt='Heal' className='perk-icon' />2 card</span>,
+                <span>Add one <img src={images.mods.plus0} alt='+0' className='perk-icon' /> ADD TARGET <img src={images.effects.target} alt='ADD TARGET' className='perk-icon' /> card</span>,
+                <span>Ignore negative scenario effects</span>,
+            ]
+        }
+    ]);
+}
 
-export default CHARPERKS;
+export default allPerks;
