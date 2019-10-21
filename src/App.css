@@ -97,6 +97,13 @@ a:hover {
     color: red;
 }
 
+/** CHARACTER PERKS */
+.perk-icon {
+    width: 1.5em;
+    height: auto;
+    vertical-align: middle;
+}
+
 
 /** MODAL STYLING */
 .modal-message {
