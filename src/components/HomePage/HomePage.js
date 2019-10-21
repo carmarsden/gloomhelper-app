@@ -13,8 +13,8 @@ function HomePage() {
                 <h2>How It Works</h2>
                 <ol className='home-content'>
                     <li>Get your party started with a new party sheet</li>
+                    <li>Create an account to start saving your data</li>
                     <li>Create character sheets for each player character</li>
-                    <li>Create an account to return to your data at your next play</li>
                     <li>Focus on killing those monsters!</li>
                 </ol>
             </section>

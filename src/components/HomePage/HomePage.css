@@ -8,14 +8,17 @@
     width: fit-content;
     margin: 30px auto;
     padding: 10px;
-    border: 1px #333 solid;
+    border: 2px solid var(--black);
+    border-radius: 2px;
     font-size: inherit;
     font-family: inherit;
+    font-weight: bold;
     text-decoration: none;
-    color: inherit;
-    background-color: #ddd;
+    text-transform: uppercase;
+    color: var(--black);
+    background-color: var(--white);
 }
 
 .home-button:focus, .home-button:hover {
-    background-color: #bbb;
+    background-color: var(--tan);
 }
