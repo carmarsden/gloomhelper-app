@@ -1,10 +1,5 @@
 .collapsible-section {
     padding: 30px 15px;
-    background-color: #ddd;
-}
-
-.collapsible-section:nth-child(odd) {
-    background-color: #fff;
 }
 
 .collapsible-header {
