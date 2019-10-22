@@ -45,18 +45,18 @@ a:hover {
 }
 
 
-/** PARTY & CHAR FORM STYLING */
-.newsheet-form fieldset {
+/** FORM STYLING */
+.newsheet-form fieldset, .account-form fieldset {
     border: 2px solid var(--black);
     border-radius: 2px;
     width: 100%;
 }
 
-.newsheet-form legend {
+.newsheet-form legend, .account-form legend {
     font-family: 'Pirata One', cursive;
 }
 
-.newsheet-form label {
+.newsheet-form label, .account-form label {
     display: block;
     margin: 5px auto;
 }
@@ -66,7 +66,7 @@ a:hover {
     margin: 5px;
 }
 
-.newsheet-form input[type=text], .newsheet-form input[type=number], .newsheet-form select, .newsheet-form textarea {
+.newsheet-form input[type="text"], .newsheet-form input[type="number"], .newsheet-form select, .newsheet-form textarea, .account-form input[type="text"], .account-form input[type="password"] {
     background-color: var(--white);
     color: var(--black);
     vertical-align: middle;
@@ -80,7 +80,7 @@ a:hover {
     text-align: center;
 }
 
-.newsheet-form button {
+.newsheet-form button, .account-form button {
     background-color: var(--white);
     text-transform: uppercase;
     font-weight: bold;
@@ -91,7 +91,12 @@ a:hover {
     border-radius: 2px;
 }
 
-.newsheet-form button:hover, .newsheet-form button:active, .newsheet-form button:focus {
+.newsheet-form button:hover, .newsheet-form button:active, .newsheet-form button:focus, .account-form button:hover, .account-form button:active, .account-form button:focus {
+    background-color: var(--tan);
+}
+
+.newsheet-form button:disabled, .account-form button:disabled {
+    text-decoration: line-through;
     background-color: var(--tan);
 }
 
@@ -130,14 +135,12 @@ a:hover {
     top: 20%;
     left: 5%;
     right: 5%;
-    border: 3px solid #000;
-    background: #fff;
+    border: 3px solid var(--black);
+    background-image: url('./images/bg_modal.jpg');
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
     overflow: auto;
     border-radius: 4px;
     padding: 5%;
-}
-
-.account-form label {
-    display: block;
-    margin: 5px auto;
 }
