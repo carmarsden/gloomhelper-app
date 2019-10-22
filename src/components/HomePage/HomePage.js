@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import images from '../../images/images';
 import './HomePage.css'
 
 function HomePage() {
     return (
         <main role='main'>
+            <header className='home-header'>
+                <img src={images.logo} alt='Gloomhelper' id='home-logo' />
+            </header>
             <section className='bodysection'>
                 <h1>Table space is precious...</h1>
                 <p className='home-content'>... so put away the paper! <strong>Gloomhelper</strong> is a companion web app to the board game <a href="https://boardgamegeek.com/boardgame/174430/gloomhaven" target="_blank" rel="noopener noreferrer">Gloomhaven</a>. Rather than tracking all characters and party stats on pieces of paper--and killing your erasers in the effort--create an account here to track and view stats between plays, on one handy screen.</p>

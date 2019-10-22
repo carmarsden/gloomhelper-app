@@ -1,3 +1,6 @@
+import logo from './logo.jpg';
+import icon from './gh_icon.jpg';
+
 // ELEMENT ICONS
 import air from './element_icons/air.png';
 import dark from './element_icons/dark.png';
@@ -34,6 +37,8 @@ import target from './effect_icons/target.png';
 import wound from './effect_icons/wound.png';
 
 export default {
+    logo,
+    icon,
     elements: {
         air,
         dark,

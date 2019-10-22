@@ -1,6 +1,5 @@
 .home-content {
-    margin: 15px auto;
-    max-width: 700px;
+    margin: 15px;
 }
 
 .home-button {
@@ -21,4 +20,15 @@
 
 .home-button:focus, .home-button:hover {
     background-color: var(--tan);
+}
+
+.home-header {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+#home-logo {
+    border: 3px solid var(--black);
+    max-width: 90%;
+    border-radius: 5px;
 }
