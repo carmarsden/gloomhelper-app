@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Gloomhelper App
 
-## Available Scripts
+Gloomhelper is an app for users playing the board game [Gloomhaven](https://boardgamegeek.com/boardgame/174430/gloomhaven) to more easily see and save character and party sheets across plays, rather than using paper sheets (and running out of erasers!).
 
-In the project directory, you can run:
+## readme requirements:
 
-### `npm start`
+Screenshot(s) of your app. This makes your app description much easier to understand.
+A section on the technology used.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Link
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+[Live Demo](https://gloomhelper.carmarsden.now.sh)
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Home Page:
 
-### `npm run build`
+![home page](screenshots/home.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Account Modals:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Choosing to log in or create an account pops up a modal on screen, leaving your work or page intact.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+All that's needed for account creating is username and password, so limited identifying information required
 
-### `npm run eject`
+![create account](screenshots/createacct.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Add New Party:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create a new party; design based on the Gloomhaven paper party sheets
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![add party](screenshots/addparty.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Add New Character:
 
-## Learn More
+Create a new character; first select class and then fill in character details based on the Gloomhaven paper character sheets
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![add character](screenshots/addchar.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Dashboard:
 
-### Code Splitting
+View your previously saved parties and characters.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Note: ability to edit/update previously saved parties & characters is coming soon!
 
-### Analyzing the Bundle Size
+![dashboard](screenshots/dashboard.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Technology
 
-### Making a Progressive Web App
+### Built with:
+* React, including Router & Context
+    * Created with [create-react-app](https://github.com/facebook/create-react-app)
+    * Confirmation modal via [react-modal](https://github.com/reactjs/react-modal)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### API Interface:
+* Built to interface with Gloomhelper Server: [gloomhelper-server](https://github.com/carmarsden/gloomhelper-server)
