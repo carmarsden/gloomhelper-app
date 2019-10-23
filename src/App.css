@@ -166,7 +166,8 @@ a:hover {
 
 .account-modal {
     position: absolute;
-    top: 20%;
+    top: 50%;
+    transform: translate(0%, -50%) !important;
     left: 5%;
     right: 5%;
     border: 3px solid var(--black);

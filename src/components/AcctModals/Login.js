@@ -15,7 +15,7 @@ class Login extends React.Component {
         return (
             <form className='account-form' onSubmit={this.props.handleLogin}>
                 {loginError}
-                <p className='modal-message'>{this.props.modalMessage}</p>
+                <span className='modal-message'>{this.props.modalMessage}</span>
                 <fieldset>
                     <legend>Log In</legend>
                     <label>Username

@@ -99,7 +99,7 @@ class CreateAccount extends React.Component {
         return (
             <form className='account-form' onSubmit={this.props.handleCreateAccount}>
                 {registerError}
-                <p className='modal-message'>{this.props.modalMessage}</p>
+                <span className='modal-message'>{this.props.modalMessage}</span>
                 <fieldset>
                     <legend>Create Account</legend>
                     <label>Username
