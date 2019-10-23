@@ -184,6 +184,7 @@ class App extends React.Component {
     render() {
         const contextValue = {
             loggedIn: this.state.loggedIn,
+            handleOpenModal: this.handleOpenModal,
             promptLogin: this.promptLogin,
         };
 

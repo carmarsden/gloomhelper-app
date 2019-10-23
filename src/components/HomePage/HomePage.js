@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AccountContext from '../../AccountContext';
 import images from '../../images/images';
 import './HomePage.css'
 
 function HomePage() {
+    const context = React.useContext(AccountContext);
+
     return (
         <main role='main'>
             <header className='home-header'>
@@ -28,7 +31,7 @@ function HomePage() {
                     Jump right in by creating a new party--just remember to create your account to save it!
                 </p>
                 <Link to='/newparty' className='home-button'>Get Started</Link>
-                <p>Or, dip your toes in: take a look at our demo dashboard, or just try it out by logging in with username <span className='democreds'>gandalf</span>, password <span className='democreds'>thewizard</span> !</p>
+                <p>Or, dip your toes in: take a look at our demo dashboard, or just try it out by <Link to='#' onClick={() => context.handleOpenModal('login')}>logging in</Link> with username <span className='democreds'>gandalf</span>, password <span className='democreds'>thewizard</span> !</p>
                 <Link to='/demo' className='home-button'>Demo Dashboard</Link>
             </section>
         </main>
