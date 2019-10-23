@@ -4,7 +4,16 @@ import AccountContext from '../../AccountContext';
 import './NavBar.css';
 
 class NavBar extends React.Component {
+    state = {
+        navActive: false,
+    }
     static contextType = AccountContext;
+
+    toggleNav = () => {
+        this.setState({
+            navActive: !this.state.navActive
+        })
+    }
 
     generateAccountLinks() {
         if (this.context.loggedIn) {
@@ -28,8 +37,17 @@ class NavBar extends React.Component {
         return (
             <header role="banner">
                 <nav role="navigation">
-                    <NavLink exact to='/' id='homelink'>Home</NavLink>
-                    <ul className="navlist">
+                    <div id='navbg'>
+                        <NavLink exact to='/' id='homelink'>Home</NavLink>
+
+                        <button id='navhamburger' aria-label='Display navigation' onClick={this.toggleNav}>
+                            <span id='hamburger1' className={this.state.navActive ? 'active' : ''}></span>
+                            <span id='hamburger2' className={this.state.navActive ? 'active' : ''}></span>
+                            <span id='hamburger3' className={this.state.navActive ? 'active' : ''}></span>
+                        </button>
+                    </div>
+
+                    <ul id='navlist' className={this.state.navActive ? 'active' : ''}>
                         {dashboardLink}
                         <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li><NavLink to='/newchar'>+ Char</NavLink></li>
