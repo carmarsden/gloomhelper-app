@@ -2,14 +2,11 @@
 
 Gloomhelper is an app for users playing the board game [Gloomhaven](https://boardgamegeek.com/boardgame/174430/gloomhaven) to more easily see and save character and party sheets across plays, rather than using paper sheets (and running out of erasers!).
 
-## readme requirements:
+## Links
 
-Screenshot(s) of your app. This makes your app description much easier to understand.
-A section on the technology used.
+* [Live Demo](https://gloomhelper.carmarsden.now.sh)
+* [API Documentation](https://github.com/carmarsden/gloomhelper-server)
 
-## Link
-
-[Live Demo](https://gloomhelper.carmarsden.now.sh)
 
 ## Screenshots
 
@@ -19,15 +16,13 @@ A section on the technology used.
 
 ### Account Modals:
 
-Choosing to log in or create an account pops up a modal on screen, leaving your work or page intact.
-
-All that's needed for account creating is username and password, so limited identifying information required
+Choosing to log in or create an account pops up a modal on screen, leaving your work or page intact. Username and password are the only required user data.
 
 ![create account](screenshots/createacct.png)
 
 ### Add New Party:
 
-Create a new party; design based on the Gloomhaven paper party sheets
+Create a new party; content based on the Gloomhaven paper party sheets
 
 ![add party](screenshots/addparty.png)
 
