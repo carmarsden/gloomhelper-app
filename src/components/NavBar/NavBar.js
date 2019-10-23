@@ -28,8 +28,8 @@ class NavBar extends React.Component {
         return (
             <header role="banner">
                 <nav role="navigation">
+                    <NavLink exact to='/' id='homelink'>Home</NavLink>
                     <ul className="navlist">
-                        <li><NavLink exact to='/' id='navlogolink'>Home</NavLink></li>
                         {dashboardLink}
                         <li><NavLink to='/newparty'>+ Party</NavLink></li>
                         <li><NavLink to='/newchar'>+ Char</NavLink></li>
