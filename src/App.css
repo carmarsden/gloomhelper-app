@@ -30,9 +30,30 @@ main {
 
 
 /** TEXT STYLING */
-h1, h2, h3 {
+h1, h2 {
     font-family: 'Pirata One', cursive;
     text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.25em;
+}
+
+h2 {
+    font-size: 1.625em;
+    line-height: 1.15em;
+}
+
+@media screen and (min-width: 650px) {
+    h1 {
+        font-size: 3em;
+        line-height: 1.05em;
+    }
+    h2 {
+        font-size: 2.25em;
+        line-height: 1.25em;
+    }
 }
 
 a {
@@ -69,11 +90,22 @@ a:hover {
 .newsheet-form input[type="text"], .newsheet-form input[type="number"], .newsheet-form select, .newsheet-form textarea, .account-form input[type="text"], .account-form input[type="password"] {
     background-color: var(--white);
     color: var(--black);
-    vertical-align: middle;
     margin: 5px 10px;
     padding: 5px;
     border: 1px solid var(--black);
     border-radius: 2px;
+    font-size: 0.8em;
+    font-family: inherit;
+    display: block;
+    width: 90%;
+}
+
+@media screen and (min-width: 650px) {
+    .newsheet-form input[type="text"], .newsheet-form input[type="number"], .newsheet-form select, .account-form input[type="text"], .account-form input[type="password"] {
+        display: inline-block;
+        vertical-align: middle;
+        width: fit-content;
+    }
 }
 
 .form-buttons {
@@ -84,6 +116,8 @@ a:hover {
     background-color: var(--white);
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 0.8em;
+    font-family: inherit;
     color: var(--black);
     margin: 5px 10px;
     padding: 5px;

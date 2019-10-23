@@ -8,6 +8,7 @@
     border: 2px solid var(--black);
     border-radius: 2px;
     background: none;
+    font-size: inherit;
 }
 
 .collapsible-header:focus, .collapsible-header:hover {
@@ -16,6 +17,8 @@
 
 .collapsible-header h2 {
     display: inline-block;
+    font-size: 1.2em;
+    line-height: 1.15em;
 }
 
 .arrow-down {
