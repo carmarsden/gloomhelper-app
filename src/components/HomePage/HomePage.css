@@ -3,9 +3,9 @@
 }
 
 .home-button {
-    display: block;
+    display: inline-block;
     width: fit-content;
-    margin: 30px auto;
+    margin: 20px auto;
     padding: 10px;
     border: 2px solid var(--black);
     border-radius: 2px;
@@ -31,4 +31,18 @@
     border: 3px solid var(--black);
     max-width: 90%;
     border-radius: 5px;
+}
+
+#tryitout {
+    text-align: center;
+}
+
+#tryitout p {
+    margin: 0;
+    padding: 0;
+}
+
+.democreds {
+    font-style: italic;
+    font-weight: bold;
 }
