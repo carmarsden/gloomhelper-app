@@ -74,7 +74,6 @@ class NewChar extends React.Component {
         }
 
         const newChar = this.generateCharObj(e.target);
-        console.log(newChar);
 
         // post newChar
         EntriesService.postChar(newChar)
